@@ -7,6 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E5006E7B18F92D120059B3FD /* testing-yuandian-input@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5006E7818F92D120059B3FD /* testing-yuandian-input@2x.png */; };
+		E5006E7C18F92D120059B3FD /* testing-duanfenge-input@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5006E7918F92D120059B3FD /* testing-duanfenge-input@2x.png */; };
+		E5006E7D18F92D120059B3FD /* testing-shuxian-input@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5006E7A18F92D120059B3FD /* testing-shuxian-input@2x.png */; };
+		E52C6F0019323A7200780E53 /* dabiaocheSaveRecordChooseCarmodelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E52C6EFF19323A7200780E53 /* dabiaocheSaveRecordChooseCarmodelViewController.m */; };
+		E5311FF2192759EB004A8ABA /* testResult-yuanquan-input@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5311FF1192759EB004A8ABA /* testResult-yuanquan-input@2x.png */; };
+		E5311FF51927A3F9004A8ABA /* dabiaocheRaceResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5311FF41927A3F9004A8ABA /* dabiaocheRaceResultViewController.m */; };
+		E5311FF81927B240004A8ABA /* dabiaocheRaceRecordCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E5311FF71927B240004A8ABA /* dabiaocheRaceRecordCell.m */; };
+		E5311FFB192A50BE004A8ABA /* iPhoneGraphViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5311FF9192A50BE004A8ABA /* iPhoneGraphViewController.m */; };
+		E5311FFE1930AE83004A8ABA /* dabiaocheImageLableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E5311FFD1930AE83004A8ABA /* dabiaocheImageLableCell.m */; };
+		E5312006193114AD004A8ABA /* common-gou-input@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5312005193114AD004A8ABA /* common-gou-input@2x.png */; };
+		E53F209319055D800029DF53 /* dabiaocheBrandViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E53F209219055D800029DF53 /* dabiaocheBrandViewController.m */; };
+		E53F2095190B79100029DF53 /* carModel@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E53F2094190B79100029DF53 /* carModel@2x.png */; };
+		E53F2098190BE3F40029DF53 /* dabiaocheCarModelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E53F2097190BE3F40029DF53 /* dabiaocheCarModelViewController.m */; };
+		E53F209B190D640E0029DF53 /* dabiaocheEditBoxViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E53F209A190D640E0029DF53 /* dabiaocheEditBoxViewController.m */; };
+		E53F209D190FF2AD0029DF53 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E53F209C190FF2AD0029DF53 /* CoreLocation.framework */; };
+		E53F20A019128A3E0029DF53 /* dabiaocheCityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E53F209F19128A3E0029DF53 /* dabiaocheCityViewController.m */; };
 		E5A61B6D18EFEA5800ED74A8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5A61B6C18EFEA5800ED74A8 /* Foundation.framework */; };
 		E5A61B6F18EFEA5800ED74A8 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5A61B6E18EFEA5800ED74A8 /* CoreGraphics.framework */; };
 		E5A61B7118EFEA5800ED74A8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5A61B7018EFEA5800ED74A8 /* UIKit.framework */; };
@@ -22,6 +38,33 @@
 		E5A61B8E18EFEA5900ED74A8 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5A61B7218EFEA5800ED74A8 /* CoreData.framework */; };
 		E5A61B9618EFEA5900ED74A8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E5A61B9418EFEA5900ED74A8 /* InfoPlist.strings */; };
 		E5A61B9818EFEA5900ED74A8 /* dabiaocheTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E5A61B9718EFEA5900ED74A8 /* dabiaocheTests.m */; };
+		E5A61BA218EFEBDB00ED74A8 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5A61BA118EFEBDB00ED74A8 /* Storyboard.storyboard */; };
+		E5A61BB018EFF2FE00ED74A8 /* common-qita-input@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5A61BA418EFF2FE00ED74A8 /* common-qita-input@2x.png */; };
+		E5A61BB118EFF2FE00ED74A8 /* common-changanniu-input@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5A61BA518EFF2FE00ED74A8 /* common-changanniu-input@2x.png */; };
+		E5A61BB218EFF2FE00ED74A8 /* common-fenge-input@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5A61BA618EFF2FE00ED74A8 /* common-fenge-input@2x.png */; };
+		E5A61BB318EFF2FE00ED74A8 /* common-genghuan-input@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5A61BA718EFF2FE00ED74A8 /* common-genghuan-input@2x.png */; };
+		E5A61BB418EFF2FE00ED74A8 /* common-houtui-input@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5A61BA818EFF2FE00ED74A8 /* common-houtui-input@2x.png */; };
+		E5A61BB518EFF2FE00ED74A8 /* common-jiantou-input@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5A61BA918EFF2FE00ED74A8 /* common-jiantou-input@2x.png */; };
+		E5A61BB618EFF2FE00ED74A8 /* common-mima-input@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5A61BAA18EFF2FE00ED74A8 /* common-mima-input@2x.png */; };
+		E5A61BB718EFF2FE00ED74A8 /* common-shanchu-input@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5A61BAB18EFF2FE00ED74A8 /* common-shanchu-input@2x.png */; };
+		E5A61BB818EFF2FE00ED74A8 /* common-shurukuang-input@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5A61BAC18EFF2FE00ED74A8 /* common-shurukuang-input@2x.png */; };
+		E5A61BB918EFF2FE00ED74A8 /* common-yonghuming-input@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5A61BAD18EFF2FE00ED74A8 /* common-yonghuming-input@2x.png */; };
+		E5A61BBA18EFF2FE00ED74A8 /* common-youjian-input@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5A61BAE18EFF2FE00ED74A8 /* common-youjian-input@2x.png */; };
+		E5A61BBB18EFF2FE00ED74A8 /* common-zhonganniu-input@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5A61BAF18EFF2FE00ED74A8 /* common-zhonganniu-input@2x.png */; };
+		E5A61BC218EFF33D00ED74A8 /* home-pai2-input@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5A61BBC18EFF33D00ED74A8 /* home-pai2-input@2x.png */; };
+		E5A61BC318EFF33D00ED74A8 /* home-daanniu-input@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5A61BBD18EFF33D00ED74A8 /* home-daanniu-input@2x.png */; };
+		E5A61BC418EFF33D00ED74A8 /* home-jin-input@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5A61BBE18EFF33D00ED74A8 /* home-jin-input@2x.png */; };
+		E5A61BC518EFF33D00ED74A8 /* home-pai1-input@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5A61BBF18EFF33D00ED74A8 /* home-pai1-input@2x.png */; };
+		E5A61BC618EFF33D00ED74A8 /* home-tong-input@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5A61BC018EFF33D00ED74A8 /* home-tong-input@2x.png */; };
+		E5A61BC718EFF33D00ED74A8 /* home-yin-input@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5A61BC118EFF33D00ED74A8 /* home-yin-input@2x.png */; };
+		E5A61BCC18F04BDD00ED74A8 /* dabiaocheHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5A61BCB18F04BDD00ED74A8 /* dabiaocheHomeViewController.m */; };
+		E5A61BCF18F04D9E00ED74A8 /* dabiaocheRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5A61BCE18F04D9E00ED74A8 /* dabiaocheRegisterViewController.m */; };
+		E5AEE95919167C000095E10C /* NSString+MD5HexDigest.m in Sources */ = {isa = PBXBuildFile; fileRef = E5AEE95819167C000095E10C /* NSString+MD5HexDigest.m */; };
+		E5AEE95C19168BE00095E10C /* dabiaocheLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5AEE95B19168BE00095E10C /* dabiaocheLoginViewController.m */; };
+		E5AEE95F191BC8230095E10C /* GraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = E5AEE95E191BC8230095E10C /* GraphView.m */; };
+		E5AEE962191BCA340095E10C /* AccelerometerFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = E5AEE961191BCA340095E10C /* AccelerometerFilter.m */; };
+		E5AEE965191BCBA90095E10C /* dabiaocheDragRaceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5AEE964191BCBA90095E10C /* dabiaocheDragRaceViewController.m */; };
+		E5AEE967191BD8A00095E10C /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5AEE966191BD8A00095E10C /* CoreMotion.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +78,31 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E5006E7818F92D120059B3FD /* testing-yuandian-input@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "testing-yuandian-input@2x.png"; sourceTree = "<group>"; };
+		E5006E7918F92D120059B3FD /* testing-duanfenge-input@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "testing-duanfenge-input@2x.png"; sourceTree = "<group>"; };
+		E5006E7A18F92D120059B3FD /* testing-shuxian-input@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "testing-shuxian-input@2x.png"; sourceTree = "<group>"; };
+		E52C6EFE19323A7200780E53 /* dabiaocheSaveRecordChooseCarmodelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dabiaocheSaveRecordChooseCarmodelViewController.h; sourceTree = "<group>"; };
+		E52C6EFF19323A7200780E53 /* dabiaocheSaveRecordChooseCarmodelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = dabiaocheSaveRecordChooseCarmodelViewController.m; sourceTree = "<group>"; };
+		E5311FF1192759EB004A8ABA /* testResult-yuanquan-input@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "testResult-yuanquan-input@2x.png"; sourceTree = "<group>"; };
+		E5311FF31927A3F9004A8ABA /* dabiaocheRaceResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dabiaocheRaceResultViewController.h; sourceTree = "<group>"; };
+		E5311FF41927A3F9004A8ABA /* dabiaocheRaceResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = dabiaocheRaceResultViewController.m; sourceTree = "<group>"; };
+		E5311FF61927B240004A8ABA /* dabiaocheRaceRecordCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dabiaocheRaceRecordCell.h; sourceTree = "<group>"; };
+		E5311FF71927B240004A8ABA /* dabiaocheRaceRecordCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = dabiaocheRaceRecordCell.m; sourceTree = "<group>"; };
+		E5311FF9192A50BE004A8ABA /* iPhoneGraphViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPhoneGraphViewController.m; sourceTree = "<group>"; };
+		E5311FFA192A50BE004A8ABA /* iPhoneGraphViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPhoneGraphViewController.h; sourceTree = "<group>"; };
+		E5311FFC1930AE83004A8ABA /* dabiaocheImageLableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dabiaocheImageLableCell.h; sourceTree = "<group>"; };
+		E5311FFD1930AE83004A8ABA /* dabiaocheImageLableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = dabiaocheImageLableCell.m; sourceTree = "<group>"; };
+		E5312005193114AD004A8ABA /* common-gou-input@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "common-gou-input@2x.png"; sourceTree = "<group>"; };
+		E53F209119055D800029DF53 /* dabiaocheBrandViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dabiaocheBrandViewController.h; sourceTree = "<group>"; };
+		E53F209219055D800029DF53 /* dabiaocheBrandViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = dabiaocheBrandViewController.m; sourceTree = "<group>"; };
+		E53F2094190B79100029DF53 /* carModel@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "carModel@2x.png"; sourceTree = "<group>"; };
+		E53F2096190BE3F40029DF53 /* dabiaocheCarModelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dabiaocheCarModelViewController.h; sourceTree = "<group>"; };
+		E53F2097190BE3F40029DF53 /* dabiaocheCarModelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = dabiaocheCarModelViewController.m; sourceTree = "<group>"; };
+		E53F2099190D640E0029DF53 /* dabiaocheEditBoxViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dabiaocheEditBoxViewController.h; sourceTree = "<group>"; };
+		E53F209A190D640E0029DF53 /* dabiaocheEditBoxViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = dabiaocheEditBoxViewController.m; sourceTree = "<group>"; };
+		E53F209C190FF2AD0029DF53 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		E53F209E19128A3E0029DF53 /* dabiaocheCityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dabiaocheCityViewController.h; sourceTree = "<group>"; };
+		E53F209F19128A3E0029DF53 /* dabiaocheCityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = dabiaocheCityViewController.m; sourceTree = "<group>"; };
 		E5A61B6918EFEA5800ED74A8 /* dabiaoche.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = dabiaoche.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5A61B6C18EFEA5800ED74A8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		E5A61B6E18EFEA5800ED74A8 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -53,6 +121,40 @@
 		E5A61B9318EFEA5900ED74A8 /* dabiaocheTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "dabiaocheTests-Info.plist"; sourceTree = "<group>"; };
 		E5A61B9518EFEA5900ED74A8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		E5A61B9718EFEA5900ED74A8 /* dabiaocheTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = dabiaocheTests.m; sourceTree = "<group>"; };
+		E5A61BA118EFEBDB00ED74A8 /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Storyboard.storyboard; path = ../Storyboard.storyboard; sourceTree = "<group>"; };
+		E5A61BA418EFF2FE00ED74A8 /* common-qita-input@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "common-qita-input@2x.png"; sourceTree = "<group>"; };
+		E5A61BA518EFF2FE00ED74A8 /* common-changanniu-input@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "common-changanniu-input@2x.png"; sourceTree = "<group>"; };
+		E5A61BA618EFF2FE00ED74A8 /* common-fenge-input@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "common-fenge-input@2x.png"; sourceTree = "<group>"; };
+		E5A61BA718EFF2FE00ED74A8 /* common-genghuan-input@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "common-genghuan-input@2x.png"; sourceTree = "<group>"; };
+		E5A61BA818EFF2FE00ED74A8 /* common-houtui-input@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "common-houtui-input@2x.png"; sourceTree = "<group>"; };
+		E5A61BA918EFF2FE00ED74A8 /* common-jiantou-input@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "common-jiantou-input@2x.png"; sourceTree = "<group>"; };
+		E5A61BAA18EFF2FE00ED74A8 /* common-mima-input@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "common-mima-input@2x.png"; sourceTree = "<group>"; };
+		E5A61BAB18EFF2FE00ED74A8 /* common-shanchu-input@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "common-shanchu-input@2x.png"; sourceTree = "<group>"; };
+		E5A61BAC18EFF2FE00ED74A8 /* common-shurukuang-input@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "common-shurukuang-input@2x.png"; sourceTree = "<group>"; };
+		E5A61BAD18EFF2FE00ED74A8 /* common-yonghuming-input@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "common-yonghuming-input@2x.png"; sourceTree = "<group>"; };
+		E5A61BAE18EFF2FE00ED74A8 /* common-youjian-input@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "common-youjian-input@2x.png"; sourceTree = "<group>"; };
+		E5A61BAF18EFF2FE00ED74A8 /* common-zhonganniu-input@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "common-zhonganniu-input@2x.png"; sourceTree = "<group>"; };
+		E5A61BBC18EFF33D00ED74A8 /* home-pai2-input@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home-pai2-input@2x.png"; sourceTree = "<group>"; };
+		E5A61BBD18EFF33D00ED74A8 /* home-daanniu-input@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home-daanniu-input@2x.png"; sourceTree = "<group>"; };
+		E5A61BBE18EFF33D00ED74A8 /* home-jin-input@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home-jin-input@2x.png"; sourceTree = "<group>"; };
+		E5A61BBF18EFF33D00ED74A8 /* home-pai1-input@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home-pai1-input@2x.png"; sourceTree = "<group>"; };
+		E5A61BC018EFF33D00ED74A8 /* home-tong-input@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home-tong-input@2x.png"; sourceTree = "<group>"; };
+		E5A61BC118EFF33D00ED74A8 /* home-yin-input@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home-yin-input@2x.png"; sourceTree = "<group>"; };
+		E5A61BCA18F04BDD00ED74A8 /* dabiaocheHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dabiaocheHomeViewController.h; sourceTree = "<group>"; };
+		E5A61BCB18F04BDD00ED74A8 /* dabiaocheHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = dabiaocheHomeViewController.m; sourceTree = "<group>"; };
+		E5A61BCD18F04D9E00ED74A8 /* dabiaocheRegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dabiaocheRegisterViewController.h; sourceTree = "<group>"; };
+		E5A61BCE18F04D9E00ED74A8 /* dabiaocheRegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = dabiaocheRegisterViewController.m; sourceTree = "<group>"; };
+		E5AEE95719167C000095E10C /* NSString+MD5HexDigest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+MD5HexDigest.h"; sourceTree = "<group>"; };
+		E5AEE95819167C000095E10C /* NSString+MD5HexDigest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MD5HexDigest.m"; sourceTree = "<group>"; };
+		E5AEE95A19168BE00095E10C /* dabiaocheLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dabiaocheLoginViewController.h; sourceTree = "<group>"; };
+		E5AEE95B19168BE00095E10C /* dabiaocheLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = dabiaocheLoginViewController.m; sourceTree = "<group>"; };
+		E5AEE95D191BC8230095E10C /* GraphView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GraphView.h; sourceTree = "<group>"; };
+		E5AEE95E191BC8230095E10C /* GraphView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GraphView.m; sourceTree = "<group>"; };
+		E5AEE960191BCA340095E10C /* AccelerometerFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccelerometerFilter.h; sourceTree = "<group>"; };
+		E5AEE961191BCA340095E10C /* AccelerometerFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccelerometerFilter.m; sourceTree = "<group>"; };
+		E5AEE963191BCBA90095E10C /* dabiaocheDragRaceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dabiaocheDragRaceViewController.h; sourceTree = "<group>"; };
+		E5AEE964191BCBA90095E10C /* dabiaocheDragRaceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = dabiaocheDragRaceViewController.m; sourceTree = "<group>"; };
+		E5AEE966191BD8A00095E10C /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +162,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5AEE967191BD8A00095E10C /* CoreMotion.framework in Frameworks */,
+				E53F209D190FF2AD0029DF53 /* CoreLocation.framework in Frameworks */,
 				E5A61B6F18EFEA5800ED74A8 /* CoreGraphics.framework in Frameworks */,
 				E5A61B7318EFEA5800ED74A8 /* CoreData.framework in Frameworks */,
 				E5A61B7118EFEA5800ED74A8 /* UIKit.framework in Frameworks */,
@@ -84,6 +188,7 @@
 		E5A61B6018EFEA5700ED74A8 = {
 			isa = PBXGroup;
 			children = (
+				E5A61BA318EFF23D00ED74A8 /* Resources */,
 				E5A61B7418EFEA5800ED74A8 /* dabiaoche */,
 				E5A61B9118EFEA5900ED74A8 /* dabiaocheTests */,
 				E5A61B6B18EFEA5800ED74A8 /* Frameworks */,
@@ -103,6 +208,8 @@
 		E5A61B6B18EFEA5800ED74A8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E5AEE966191BD8A00095E10C /* CoreMotion.framework */,
+				E53F209C190FF2AD0029DF53 /* CoreLocation.framework */,
 				E5A61B6C18EFEA5800ED74A8 /* Foundation.framework */,
 				E5A61B6E18EFEA5800ED74A8 /* CoreGraphics.framework */,
 				E5A61B7018EFEA5800ED74A8 /* UIKit.framework */,
@@ -115,11 +222,44 @@
 		E5A61B7418EFEA5800ED74A8 /* dabiaoche */ = {
 			isa = PBXGroup;
 			children = (
+				E5311FF9192A50BE004A8ABA /* iPhoneGraphViewController.m */,
+				E5311FFA192A50BE004A8ABA /* iPhoneGraphViewController.h */,
+				E5AEE960191BCA340095E10C /* AccelerometerFilter.h */,
+				E5AEE961191BCA340095E10C /* AccelerometerFilter.m */,
+				E5AEE95D191BC8230095E10C /* GraphView.h */,
+				E5AEE95E191BC8230095E10C /* GraphView.m */,
+				E5A61BA118EFEBDB00ED74A8 /* Storyboard.storyboard */,
 				E5A61B7D18EFEA5800ED74A8 /* dabiaocheAppDelegate.h */,
 				E5A61B7E18EFEA5800ED74A8 /* dabiaocheAppDelegate.m */,
 				E5A61B8318EFEA5900ED74A8 /* Images.xcassets */,
 				E5A61B8018EFEA5800ED74A8 /* dabiaoche.xcdatamodeld */,
 				E5A61B7518EFEA5800ED74A8 /* Supporting Files */,
+				E5A61BCA18F04BDD00ED74A8 /* dabiaocheHomeViewController.h */,
+				E5A61BCB18F04BDD00ED74A8 /* dabiaocheHomeViewController.m */,
+				E5A61BCD18F04D9E00ED74A8 /* dabiaocheRegisterViewController.h */,
+				E5A61BCE18F04D9E00ED74A8 /* dabiaocheRegisterViewController.m */,
+				E53F209119055D800029DF53 /* dabiaocheBrandViewController.h */,
+				E53F209219055D800029DF53 /* dabiaocheBrandViewController.m */,
+				E53F2096190BE3F40029DF53 /* dabiaocheCarModelViewController.h */,
+				E53F2097190BE3F40029DF53 /* dabiaocheCarModelViewController.m */,
+				E53F2099190D640E0029DF53 /* dabiaocheEditBoxViewController.h */,
+				E53F209A190D640E0029DF53 /* dabiaocheEditBoxViewController.m */,
+				E53F209E19128A3E0029DF53 /* dabiaocheCityViewController.h */,
+				E53F209F19128A3E0029DF53 /* dabiaocheCityViewController.m */,
+				E5AEE95719167C000095E10C /* NSString+MD5HexDigest.h */,
+				E5AEE95819167C000095E10C /* NSString+MD5HexDigest.m */,
+				E5AEE95A19168BE00095E10C /* dabiaocheLoginViewController.h */,
+				E5AEE95B19168BE00095E10C /* dabiaocheLoginViewController.m */,
+				E5AEE963191BCBA90095E10C /* dabiaocheDragRaceViewController.h */,
+				E5AEE964191BCBA90095E10C /* dabiaocheDragRaceViewController.m */,
+				E5311FF31927A3F9004A8ABA /* dabiaocheRaceResultViewController.h */,
+				E5311FF41927A3F9004A8ABA /* dabiaocheRaceResultViewController.m */,
+				E5311FF61927B240004A8ABA /* dabiaocheRaceRecordCell.h */,
+				E5311FF71927B240004A8ABA /* dabiaocheRaceRecordCell.m */,
+				E5311FFC1930AE83004A8ABA /* dabiaocheImageLableCell.h */,
+				E5311FFD1930AE83004A8ABA /* dabiaocheImageLableCell.m */,
+				E52C6EFE19323A7200780E53 /* dabiaocheSaveRecordChooseCarmodelViewController.h */,
+				E52C6EFF19323A7200780E53 /* dabiaocheSaveRecordChooseCarmodelViewController.m */,
 			);
 			path = dabiaoche;
 			sourceTree = "<group>";
@@ -151,6 +291,37 @@
 				E5A61B9418EFEA5900ED74A8 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E5A61BA318EFF23D00ED74A8 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				E5312005193114AD004A8ABA /* common-gou-input@2x.png */,
+				E5311FF1192759EB004A8ABA /* testResult-yuanquan-input@2x.png */,
+				E53F2094190B79100029DF53 /* carModel@2x.png */,
+				E5006E7818F92D120059B3FD /* testing-yuandian-input@2x.png */,
+				E5006E7918F92D120059B3FD /* testing-duanfenge-input@2x.png */,
+				E5006E7A18F92D120059B3FD /* testing-shuxian-input@2x.png */,
+				E5A61BBC18EFF33D00ED74A8 /* home-pai2-input@2x.png */,
+				E5A61BBD18EFF33D00ED74A8 /* home-daanniu-input@2x.png */,
+				E5A61BBE18EFF33D00ED74A8 /* home-jin-input@2x.png */,
+				E5A61BBF18EFF33D00ED74A8 /* home-pai1-input@2x.png */,
+				E5A61BC018EFF33D00ED74A8 /* home-tong-input@2x.png */,
+				E5A61BC118EFF33D00ED74A8 /* home-yin-input@2x.png */,
+				E5A61BA418EFF2FE00ED74A8 /* common-qita-input@2x.png */,
+				E5A61BA518EFF2FE00ED74A8 /* common-changanniu-input@2x.png */,
+				E5A61BA618EFF2FE00ED74A8 /* common-fenge-input@2x.png */,
+				E5A61BA718EFF2FE00ED74A8 /* common-genghuan-input@2x.png */,
+				E5A61BA818EFF2FE00ED74A8 /* common-houtui-input@2x.png */,
+				E5A61BA918EFF2FE00ED74A8 /* common-jiantou-input@2x.png */,
+				E5A61BAA18EFF2FE00ED74A8 /* common-mima-input@2x.png */,
+				E5A61BAB18EFF2FE00ED74A8 /* common-shanchu-input@2x.png */,
+				E5A61BAC18EFF2FE00ED74A8 /* common-shurukuang-input@2x.png */,
+				E5A61BAD18EFF2FE00ED74A8 /* common-yonghuming-input@2x.png */,
+				E5A61BAE18EFF2FE00ED74A8 /* common-youjian-input@2x.png */,
+				E5A61BAF18EFF2FE00ED74A8 /* common-zhonganniu-input@2x.png */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -201,6 +372,14 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "li losser";
 				TargetAttributes = {
+					E5A61B6818EFEA5700ED74A8 = {
+						DevelopmentTeam = 8HYV8XH4XQ;
+						SystemCapabilities = {
+							com.apple.iOS = {
+								enabled = 0;
+							};
+						};
+					};
 					E5A61B8818EFEA5900ED74A8 = {
 						TestTargetID = E5A61B6818EFEA5700ED74A8;
 					};
@@ -229,8 +408,33 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5A61BB418EFF2FE00ED74A8 /* common-houtui-input@2x.png in Resources */,
+				E5006E7D18F92D120059B3FD /* testing-shuxian-input@2x.png in Resources */,
+				E5A61BB318EFF2FE00ED74A8 /* common-genghuan-input@2x.png in Resources */,
+				E5A61BC218EFF33D00ED74A8 /* home-pai2-input@2x.png in Resources */,
+				E5A61BBB18EFF2FE00ED74A8 /* common-zhonganniu-input@2x.png in Resources */,
+				E5A61BB218EFF2FE00ED74A8 /* common-fenge-input@2x.png in Resources */,
+				E5311FF2192759EB004A8ABA /* testResult-yuanquan-input@2x.png in Resources */,
 				E5A61B7918EFEA5800ED74A8 /* InfoPlist.strings in Resources */,
+				E5A61BB618EFF2FE00ED74A8 /* common-mima-input@2x.png in Resources */,
+				E5A61BB518EFF2FE00ED74A8 /* common-jiantou-input@2x.png in Resources */,
+				E5A61BC318EFF33D00ED74A8 /* home-daanniu-input@2x.png in Resources */,
+				E5A61BBA18EFF2FE00ED74A8 /* common-youjian-input@2x.png in Resources */,
+				E5A61BC618EFF33D00ED74A8 /* home-tong-input@2x.png in Resources */,
 				E5A61B8418EFEA5900ED74A8 /* Images.xcassets in Resources */,
+				E5A61BB118EFF2FE00ED74A8 /* common-changanniu-input@2x.png in Resources */,
+				E5006E7C18F92D120059B3FD /* testing-duanfenge-input@2x.png in Resources */,
+				E5A61BC518EFF33D00ED74A8 /* home-pai1-input@2x.png in Resources */,
+				E5A61BB918EFF2FE00ED74A8 /* common-yonghuming-input@2x.png in Resources */,
+				E53F2095190B79100029DF53 /* carModel@2x.png in Resources */,
+				E5006E7B18F92D120059B3FD /* testing-yuandian-input@2x.png in Resources */,
+				E5A61BA218EFEBDB00ED74A8 /* Storyboard.storyboard in Resources */,
+				E5A61BC418EFF33D00ED74A8 /* home-jin-input@2x.png in Resources */,
+				E5312006193114AD004A8ABA /* common-gou-input@2x.png in Resources */,
+				E5A61BB718EFF2FE00ED74A8 /* common-shanchu-input@2x.png in Resources */,
+				E5A61BB018EFF2FE00ED74A8 /* common-qita-input@2x.png in Resources */,
+				E5A61BB818EFF2FE00ED74A8 /* common-shurukuang-input@2x.png in Resources */,
+				E5A61BC718EFF33D00ED74A8 /* home-yin-input@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -249,8 +453,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5AEE95C19168BE00095E10C /* dabiaocheLoginViewController.m in Sources */,
+				E5AEE95919167C000095E10C /* NSString+MD5HexDigest.m in Sources */,
+				E53F2098190BE3F40029DF53 /* dabiaocheCarModelViewController.m in Sources */,
+				E5311FF51927A3F9004A8ABA /* dabiaocheRaceResultViewController.m in Sources */,
+				E5AEE95F191BC8230095E10C /* GraphView.m in Sources */,
+				E5A61BCC18F04BDD00ED74A8 /* dabiaocheHomeViewController.m in Sources */,
+				E53F209B190D640E0029DF53 /* dabiaocheEditBoxViewController.m in Sources */,
+				E53F209319055D800029DF53 /* dabiaocheBrandViewController.m in Sources */,
 				E5A61B8218EFEA5900ED74A8 /* dabiaoche.xcdatamodeld in Sources */,
 				E5A61B7B18EFEA5800ED74A8 /* main.m in Sources */,
+				E53F20A019128A3E0029DF53 /* dabiaocheCityViewController.m in Sources */,
+				E5311FFE1930AE83004A8ABA /* dabiaocheImageLableCell.m in Sources */,
+				E5A61BCF18F04D9E00ED74A8 /* dabiaocheRegisterViewController.m in Sources */,
+				E5311FFB192A50BE004A8ABA /* iPhoneGraphViewController.m in Sources */,
+				E5AEE962191BCA340095E10C /* AccelerometerFilter.m in Sources */,
+				E52C6F0019323A7200780E53 /* dabiaocheSaveRecordChooseCarmodelViewController.m in Sources */,
+				E5AEE965191BCBA90095E10C /* dabiaocheDragRaceViewController.m in Sources */,
+				E5311FF81927B240004A8ABA /* dabiaocheRaceRecordCell.m in Sources */,
 				E5A61B7F18EFEA5800ED74A8 /* dabiaocheAppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -370,6 +590,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "dabiaoche/dabiaoche-Prefix.pch";
 				INFOPLIST_FILE = "dabiaoche/dabiaoche-Info.plist";
@@ -383,6 +604,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "dabiaoche/dabiaoche-Prefix.pch";
 				INFOPLIST_FILE = "dabiaoche/dabiaoche-Info.plist";
@@ -452,6 +674,7 @@
 				E5A61B9D18EFEA5A00ED74A8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E5A61B9E18EFEA5A00ED74A8 /* Build configuration list for PBXNativeTarget "dabiaocheTests" */ = {
 			isa = XCConfigurationList;
@@ -460,6 +683,7 @@
 				E5A61BA018EFEA5A00ED74A8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
