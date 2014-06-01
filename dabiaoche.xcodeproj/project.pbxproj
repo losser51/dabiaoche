@@ -10,6 +10,11 @@
 		E5006E7B18F92D120059B3FD /* testing-yuandian-input@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5006E7818F92D120059B3FD /* testing-yuandian-input@2x.png */; };
 		E5006E7C18F92D120059B3FD /* testing-duanfenge-input@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5006E7918F92D120059B3FD /* testing-duanfenge-input@2x.png */; };
 		E5006E7D18F92D120059B3FD /* testing-shuxian-input@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5006E7A18F92D120059B3FD /* testing-shuxian-input@2x.png */; };
+		E50EA625193B8E9B00F8E8A8 /* myResult-1-input@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E50EA620193B8E9B00F8E8A8 /* myResult-1-input@2x.png */; };
+		E50EA626193B8E9B00F8E8A8 /* myResult-2-input@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E50EA621193B8E9B00F8E8A8 /* myResult-2-input@2x.png */; };
+		E50EA627193B8E9B00F8E8A8 /* myResult-3-input@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E50EA622193B8E9B00F8E8A8 /* myResult-3-input@2x.png */; };
+		E50EA628193B8E9B00F8E8A8 /* myResult-4-input@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E50EA623193B8E9B00F8E8A8 /* myResult-4-input@2x.png */; };
+		E50EA629193B8E9B00F8E8A8 /* myResult-5-input@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E50EA624193B8E9B00F8E8A8 /* myResult-5-input@2x.png */; };
 		E52C6F0019323A7200780E53 /* dabiaocheSaveRecordChooseCarmodelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E52C6EFF19323A7200780E53 /* dabiaocheSaveRecordChooseCarmodelViewController.m */; };
 		E5311FF2192759EB004A8ABA /* testResult-yuanquan-input@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5311FF1192759EB004A8ABA /* testResult-yuanquan-input@2x.png */; };
 		E5311FF51927A3F9004A8ABA /* dabiaocheRaceResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5311FF41927A3F9004A8ABA /* dabiaocheRaceResultViewController.m */; };
@@ -81,6 +86,11 @@
 		E5006E7818F92D120059B3FD /* testing-yuandian-input@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "testing-yuandian-input@2x.png"; sourceTree = "<group>"; };
 		E5006E7918F92D120059B3FD /* testing-duanfenge-input@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "testing-duanfenge-input@2x.png"; sourceTree = "<group>"; };
 		E5006E7A18F92D120059B3FD /* testing-shuxian-input@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "testing-shuxian-input@2x.png"; sourceTree = "<group>"; };
+		E50EA620193B8E9B00F8E8A8 /* myResult-1-input@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "myResult-1-input@2x.png"; sourceTree = "<group>"; };
+		E50EA621193B8E9B00F8E8A8 /* myResult-2-input@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "myResult-2-input@2x.png"; sourceTree = "<group>"; };
+		E50EA622193B8E9B00F8E8A8 /* myResult-3-input@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "myResult-3-input@2x.png"; sourceTree = "<group>"; };
+		E50EA623193B8E9B00F8E8A8 /* myResult-4-input@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "myResult-4-input@2x.png"; sourceTree = "<group>"; };
+		E50EA624193B8E9B00F8E8A8 /* myResult-5-input@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "myResult-5-input@2x.png"; sourceTree = "<group>"; };
 		E52C6EFE19323A7200780E53 /* dabiaocheSaveRecordChooseCarmodelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dabiaocheSaveRecordChooseCarmodelViewController.h; sourceTree = "<group>"; };
 		E52C6EFF19323A7200780E53 /* dabiaocheSaveRecordChooseCarmodelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = dabiaocheSaveRecordChooseCarmodelViewController.m; sourceTree = "<group>"; };
 		E5311FF1192759EB004A8ABA /* testResult-yuanquan-input@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "testResult-yuanquan-input@2x.png"; sourceTree = "<group>"; };
@@ -296,6 +306,11 @@
 		E5A61BA318EFF23D00ED74A8 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				E50EA620193B8E9B00F8E8A8 /* myResult-1-input@2x.png */,
+				E50EA621193B8E9B00F8E8A8 /* myResult-2-input@2x.png */,
+				E50EA622193B8E9B00F8E8A8 /* myResult-3-input@2x.png */,
+				E50EA623193B8E9B00F8E8A8 /* myResult-4-input@2x.png */,
+				E50EA624193B8E9B00F8E8A8 /* myResult-5-input@2x.png */,
 				E5312005193114AD004A8ABA /* common-gou-input@2x.png */,
 				E5311FF1192759EB004A8ABA /* testResult-yuanquan-input@2x.png */,
 				E53F2094190B79100029DF53 /* carModel@2x.png */,
@@ -412,7 +427,9 @@
 				E5006E7D18F92D120059B3FD /* testing-shuxian-input@2x.png in Resources */,
 				E5A61BB318EFF2FE00ED74A8 /* common-genghuan-input@2x.png in Resources */,
 				E5A61BC218EFF33D00ED74A8 /* home-pai2-input@2x.png in Resources */,
+				E50EA628193B8E9B00F8E8A8 /* myResult-4-input@2x.png in Resources */,
 				E5A61BBB18EFF2FE00ED74A8 /* common-zhonganniu-input@2x.png in Resources */,
+				E50EA626193B8E9B00F8E8A8 /* myResult-2-input@2x.png in Resources */,
 				E5A61BB218EFF2FE00ED74A8 /* common-fenge-input@2x.png in Resources */,
 				E5311FF2192759EB004A8ABA /* testResult-yuanquan-input@2x.png in Resources */,
 				E5A61B7918EFEA5800ED74A8 /* InfoPlist.strings in Resources */,
@@ -424,10 +441,13 @@
 				E5A61B8418EFEA5900ED74A8 /* Images.xcassets in Resources */,
 				E5A61BB118EFF2FE00ED74A8 /* common-changanniu-input@2x.png in Resources */,
 				E5006E7C18F92D120059B3FD /* testing-duanfenge-input@2x.png in Resources */,
+				E50EA625193B8E9B00F8E8A8 /* myResult-1-input@2x.png in Resources */,
 				E5A61BC518EFF33D00ED74A8 /* home-pai1-input@2x.png in Resources */,
 				E5A61BB918EFF2FE00ED74A8 /* common-yonghuming-input@2x.png in Resources */,
 				E53F2095190B79100029DF53 /* carModel@2x.png in Resources */,
 				E5006E7B18F92D120059B3FD /* testing-yuandian-input@2x.png in Resources */,
+				E50EA627193B8E9B00F8E8A8 /* myResult-3-input@2x.png in Resources */,
+				E50EA629193B8E9B00F8E8A8 /* myResult-5-input@2x.png in Resources */,
 				E5A61BA218EFEBDB00ED74A8 /* Storyboard.storyboard in Resources */,
 				E5A61BC418EFF33D00ED74A8 /* home-jin-input@2x.png in Resources */,
 				E5312006193114AD004A8ABA /* common-gou-input@2x.png in Resources */,
