@@ -10,8 +10,11 @@
 
 @interface dabiaocheSaveRecordChooseCarmodelViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UIImageView *otherChooseFlagImage;
+@property (weak, nonatomic) IBOutlet UIImageView *userDefaultCarModelFlagImage;
 @property (weak, nonatomic) IBOutlet UIImageView *otherChooseCarmodelImage;
 @property (weak, nonatomic) IBOutlet UILabel *otherChooseCarmodelLable;
 @property (weak, nonatomic) IBOutlet UILabel *otherChooseLable;
+@property (weak, nonatomic) IBOutlet UILabel *userDefaultCarModelLable;
+@property (weak, nonatomic) IBOutlet UIImageView *userDefaultCarModelImage;
 
 @end
