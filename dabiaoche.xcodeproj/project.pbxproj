@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2723F5EF19437023000B59F7 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2723F5EE19437023000B59F7 /* AVFoundation.framework */; };
+		2723F5F119446328000B59F7 /* race.wav in Resources */ = {isa = PBXBuildFile; fileRef = 2723F5F019446328000B59F7 /* race.wav */; };
+		2723F5F41944716B000B59F7 /* dabiaocheHomeRankingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2723F5F31944716B000B59F7 /* dabiaocheHomeRankingCell.m */; };
+		275DFE84193C3D5400101F59 /* dabiaocheMyRecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 275DFE83193C3D5400101F59 /* dabiaocheMyRecordViewController.m */; };
+		275DFE87193C41E300101F59 /* dabiaocheCarModelRecordTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 275DFE86193C41E300101F59 /* dabiaocheCarModelRecordTableViewCell.m */; };
+		275DFE8A193C464100101F59 /* dabiaocheCarModelSingleRecordTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 275DFE89193C464100101F59 /* dabiaocheCarModelSingleRecordTableViewCell.m */; };
+		275DFE8E193CB94A00101F59 /* NSObject+JSONCategories.m in Sources */ = {isa = PBXBuildFile; fileRef = 275DFE8D193CB94A00101F59 /* NSObject+JSONCategories.m */; };
 		E5006E7B18F92D120059B3FD /* testing-yuandian-input@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5006E7818F92D120059B3FD /* testing-yuandian-input@2x.png */; };
 		E5006E7C18F92D120059B3FD /* testing-duanfenge-input@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5006E7918F92D120059B3FD /* testing-duanfenge-input@2x.png */; };
 		E5006E7D18F92D120059B3FD /* testing-shuxian-input@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5006E7A18F92D120059B3FD /* testing-shuxian-input@2x.png */; };
@@ -83,6 +90,19 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2723F5EE19437023000B59F7 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		2723F5F019446328000B59F7 /* race.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = race.wav; sourceTree = "<group>"; };
+		2723F5F21944716B000B59F7 /* dabiaocheHomeRankingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dabiaocheHomeRankingCell.h; sourceTree = "<group>"; };
+		2723F5F31944716B000B59F7 /* dabiaocheHomeRankingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = dabiaocheHomeRankingCell.m; sourceTree = "<group>"; };
+		275DFE82193C3D5400101F59 /* dabiaocheMyRecordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dabiaocheMyRecordViewController.h; sourceTree = "<group>"; };
+		275DFE83193C3D5400101F59 /* dabiaocheMyRecordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = dabiaocheMyRecordViewController.m; sourceTree = "<group>"; };
+		275DFE85193C41E300101F59 /* dabiaocheCarModelRecordTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dabiaocheCarModelRecordTableViewCell.h; sourceTree = "<group>"; };
+		275DFE86193C41E300101F59 /* dabiaocheCarModelRecordTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = dabiaocheCarModelRecordTableViewCell.m; sourceTree = "<group>"; };
+		275DFE88193C464100101F59 /* dabiaocheCarModelSingleRecordTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dabiaocheCarModelSingleRecordTableViewCell.h; sourceTree = "<group>"; };
+		275DFE89193C464100101F59 /* dabiaocheCarModelSingleRecordTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = dabiaocheCarModelSingleRecordTableViewCell.m; sourceTree = "<group>"; };
+		275DFE8B193C499A00101F59 /* Const.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Const.h; sourceTree = "<group>"; };
+		275DFE8C193CB94A00101F59 /* NSObject+JSONCategories.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+JSONCategories.h"; sourceTree = "<group>"; };
+		275DFE8D193CB94A00101F59 /* NSObject+JSONCategories.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+JSONCategories.m"; sourceTree = "<group>"; };
 		E5006E7818F92D120059B3FD /* testing-yuandian-input@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "testing-yuandian-input@2x.png"; sourceTree = "<group>"; };
 		E5006E7918F92D120059B3FD /* testing-duanfenge-input@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "testing-duanfenge-input@2x.png"; sourceTree = "<group>"; };
 		E5006E7A18F92D120059B3FD /* testing-shuxian-input@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "testing-shuxian-input@2x.png"; sourceTree = "<group>"; };
@@ -172,6 +192,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2723F5EF19437023000B59F7 /* AVFoundation.framework in Frameworks */,
 				E5AEE967191BD8A00095E10C /* CoreMotion.framework in Frameworks */,
 				E53F209D190FF2AD0029DF53 /* CoreLocation.framework in Frameworks */,
 				E5A61B6F18EFEA5800ED74A8 /* CoreGraphics.framework in Frameworks */,
@@ -218,6 +239,7 @@
 		E5A61B6B18EFEA5800ED74A8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2723F5EE19437023000B59F7 /* AVFoundation.framework */,
 				E5AEE966191BD8A00095E10C /* CoreMotion.framework */,
 				E53F209C190FF2AD0029DF53 /* CoreLocation.framework */,
 				E5A61B6C18EFEA5800ED74A8 /* Foundation.framework */,
@@ -270,6 +292,17 @@
 				E5311FFD1930AE83004A8ABA /* dabiaocheImageLableCell.m */,
 				E52C6EFE19323A7200780E53 /* dabiaocheSaveRecordChooseCarmodelViewController.h */,
 				E52C6EFF19323A7200780E53 /* dabiaocheSaveRecordChooseCarmodelViewController.m */,
+				275DFE82193C3D5400101F59 /* dabiaocheMyRecordViewController.h */,
+				275DFE83193C3D5400101F59 /* dabiaocheMyRecordViewController.m */,
+				275DFE85193C41E300101F59 /* dabiaocheCarModelRecordTableViewCell.h */,
+				275DFE86193C41E300101F59 /* dabiaocheCarModelRecordTableViewCell.m */,
+				275DFE88193C464100101F59 /* dabiaocheCarModelSingleRecordTableViewCell.h */,
+				275DFE89193C464100101F59 /* dabiaocheCarModelSingleRecordTableViewCell.m */,
+				275DFE8B193C499A00101F59 /* Const.h */,
+				275DFE8C193CB94A00101F59 /* NSObject+JSONCategories.h */,
+				275DFE8D193CB94A00101F59 /* NSObject+JSONCategories.m */,
+				2723F5F21944716B000B59F7 /* dabiaocheHomeRankingCell.h */,
+				2723F5F31944716B000B59F7 /* dabiaocheHomeRankingCell.m */,
 			);
 			path = dabiaoche;
 			sourceTree = "<group>";
@@ -306,6 +339,7 @@
 		E5A61BA318EFF23D00ED74A8 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				2723F5F019446328000B59F7 /* race.wav */,
 				E50EA620193B8E9B00F8E8A8 /* myResult-1-input@2x.png */,
 				E50EA621193B8E9B00F8E8A8 /* myResult-2-input@2x.png */,
 				E50EA622193B8E9B00F8E8A8 /* myResult-3-input@2x.png */,
@@ -439,6 +473,7 @@
 				E5A61BBA18EFF2FE00ED74A8 /* common-youjian-input@2x.png in Resources */,
 				E5A61BC618EFF33D00ED74A8 /* home-tong-input@2x.png in Resources */,
 				E5A61B8418EFEA5900ED74A8 /* Images.xcassets in Resources */,
+				2723F5F119446328000B59F7 /* race.wav in Resources */,
 				E5A61BB118EFF2FE00ED74A8 /* common-changanniu-input@2x.png in Resources */,
 				E5006E7C18F92D120059B3FD /* testing-duanfenge-input@2x.png in Resources */,
 				E50EA625193B8E9B00F8E8A8 /* myResult-1-input@2x.png in Resources */,
@@ -481,12 +516,17 @@
 				E5A61BCC18F04BDD00ED74A8 /* dabiaocheHomeViewController.m in Sources */,
 				E53F209B190D640E0029DF53 /* dabiaocheEditBoxViewController.m in Sources */,
 				E53F209319055D800029DF53 /* dabiaocheBrandViewController.m in Sources */,
+				275DFE84193C3D5400101F59 /* dabiaocheMyRecordViewController.m in Sources */,
 				E5A61B8218EFEA5900ED74A8 /* dabiaoche.xcdatamodeld in Sources */,
+				275DFE8E193CB94A00101F59 /* NSObject+JSONCategories.m in Sources */,
 				E5A61B7B18EFEA5800ED74A8 /* main.m in Sources */,
 				E53F20A019128A3E0029DF53 /* dabiaocheCityViewController.m in Sources */,
 				E5311FFE1930AE83004A8ABA /* dabiaocheImageLableCell.m in Sources */,
+				275DFE87193C41E300101F59 /* dabiaocheCarModelRecordTableViewCell.m in Sources */,
 				E5A61BCF18F04D9E00ED74A8 /* dabiaocheRegisterViewController.m in Sources */,
+				2723F5F41944716B000B59F7 /* dabiaocheHomeRankingCell.m in Sources */,
 				E5311FFB192A50BE004A8ABA /* iPhoneGraphViewController.m in Sources */,
+				275DFE8A193C464100101F59 /* dabiaocheCarModelSingleRecordTableViewCell.m in Sources */,
 				E5AEE962191BCA340095E10C /* AccelerometerFilter.m in Sources */,
 				E52C6F0019323A7200780E53 /* dabiaocheSaveRecordChooseCarmodelViewController.m in Sources */,
 				E5AEE965191BCBA90095E10C /* dabiaocheDragRaceViewController.m in Sources */,
@@ -566,7 +606,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 			};
@@ -599,7 +639,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -615,6 +655,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "dabiaoche/dabiaoche-Prefix.pch";
 				INFOPLIST_FILE = "dabiaoche/dabiaoche-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
@@ -631,6 +672,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "dabiaoche/dabiaoche-Prefix.pch";
 				INFOPLIST_FILE = "dabiaoche/dabiaoche-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
