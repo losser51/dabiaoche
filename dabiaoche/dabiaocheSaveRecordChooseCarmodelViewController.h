@@ -16,5 +16,10 @@
 @property (weak, nonatomic) IBOutlet UILabel *otherChooseLable;
 @property (weak, nonatomic) IBOutlet UILabel *userDefaultCarModelLable;
 @property (weak, nonatomic) IBOutlet UIImageView *userDefaultCarModelImage;
+@property (strong, nonatomic) NSArray *recordArr;
+@property (strong, nonatomic) NSDictionary *hostUser;
+@property (strong, nonatomic) NSDictionary *carModel;
+@property (assign, nonatomic) int raceDistance;
+- (IBAction)saveRecords:(id)sender;
 
 @end

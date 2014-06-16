@@ -8,6 +8,7 @@
 
 #import "dabiaocheLoginViewController.h"
 #import "NSString+MD5HexDigest.h"
+#import "Const.h"
 
 @interface dabiaocheLoginViewController ()
 
@@ -51,7 +52,7 @@
     //定义NSMutableURLRequest
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
     //设置提交目的url
-    [request setURL:[NSURL URLWithString:@"http://192.168.1.103:8080/login"]];
+    [request setURL:[NSURL URLWithString:API_HOST_LOGIN]];
     //设置提交方式为 POST
     [request setHTTPMethod:@"POST"];
     //设置http-header:Content-Type
@@ -88,5 +89,13 @@
     }else{
         NSLog(@"NO");
     }
+}
+
+- (IBAction)nickClick:(id)sender {
+    [_nickname_lable becomeFirstResponder];
+}
+
+- (IBAction)passwordClick:(id)sender {
+    [_password_lable becomeFirstResponder];
 }
 @end

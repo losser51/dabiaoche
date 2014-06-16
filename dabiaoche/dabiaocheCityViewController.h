@@ -13,5 +13,6 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSMutableDictionary *dic;
 @property (strong, nonatomic) NSMutableArray *keys;
+- (IBAction)didEditChange:(id)sender;
 @property (nonatomic, retain) CLLocationManager *locationManager;
 @end

@@ -9,6 +9,7 @@
 #import "dabiaocheRegisterViewController.h"
 #import "dabiaocheEditBoxViewController.h"
 #import "NSString+MD5HexDigest.h"
+#import "Const.h"
 
 @interface dabiaocheRegisterViewController (){
 }
@@ -76,15 +77,11 @@
     NSDictionary *one = [NSJSONSerialization JSONObjectWithData:[notification object] options:NSJSONReadingAllowFragments error:&error];
     
     _carModel_lable.text = [one objectForKey:@"name"];
-    NSString *imageUrl = [one objectForKey:@"imgurl2"];
-    UIImage *image;
-    if([imageUrl isEqualToString:@""]){
-        image = [UIImage imageNamed:@"carModel.png"];
-    }else{
-        NSURL *url = [NSURL URLWithString:imageUrl];
-        NSData *data = [NSData dataWithContentsOfURL:url];
-        image = [[UIImage alloc] initWithData:data];
-    }
+    
+    NSString *imageUrl = [NSString stringWithFormat:IMAGE_URL_CARMODEL,[one objectForKey:@"id"]];
+    NSURL *url = [NSURL URLWithString:imageUrl];
+    NSData *data = [NSData dataWithContentsOfURL:url];
+    UIImage* image = [[UIImage alloc] initWithData:data];
     
     _carModel_image.image = image;
     _carModelId = [[one objectForKey:@"id"]integerValue];
@@ -142,13 +139,15 @@
     switch (btn.tag) {
         case 11:
             editBoxView.navigationItem.title = @"昵称";
+            editBoxView.editModel = EDIT_MODEL_NICKNAME;
             break;
         case 12:
             editBoxView.navigationItem.title = @"密码";
-            editBoxView.editModel = 2;
+            editBoxView.editModel = EDIT_MODEL_PASSWORD;
             break;
         case 13:
             editBoxView.navigationItem.title = @"邮箱";
+            editBoxView.editModel = EDIT_MODEL_EMAIL;
             break;
             
         default:
@@ -179,7 +178,7 @@
     //定义NSMutableURLRequest
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
     //设置提交目的url
-    [request setURL:[NSURL URLWithString:@"http://192.168.1.103:8080/register"]];
+    [request setURL:[NSURL URLWithString:API_HOST_REGISTER]];
     //设置提交方式为 POST
     [request setHTTPMethod:@"POST"];
     //设置http-header:Content-Type

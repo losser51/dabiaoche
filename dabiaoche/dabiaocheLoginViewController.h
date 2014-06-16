@@ -12,5 +12,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *nickname_lable;
 @property (weak, nonatomic) IBOutlet UITextField *password_lable;
 - (IBAction)login:(id)sender;
+- (IBAction)nickClick:(id)sender;
+- (IBAction)passwordClick:(id)sender;
 
 @end

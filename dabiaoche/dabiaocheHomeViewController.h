@@ -8,8 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
-@interface dabiaocheHomeViewController : UIViewController
+@interface dabiaocheHomeViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UIView *myButtomView;
 @property (weak, nonatomic) IBOutlet UIView *loginButtomView;
+@property (strong,nonatomic) NSDictionary * rankingDic;
+@property (strong,nonatomic) NSArray* rankingArr;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 - (IBAction)clickToRace:(id)sender;
+- (IBAction)rankingTypeChange:(id)sender;
+@property (weak, nonatomic) IBOutlet UIImageView *myImage;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *typeSegmented;
+@property (weak, nonatomic) IBOutlet UIButton *webViewtoggleBtn;
+- (IBAction)closeWebView:(id)sender;
+@property (weak, nonatomic) IBOutlet UIWebView *webVIew;
 @end

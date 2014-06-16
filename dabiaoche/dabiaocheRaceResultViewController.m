@@ -7,6 +7,7 @@
 //
 
 #import "dabiaocheRaceResultViewController.h"
+#import "dabiaocheSaveRecordChooseCarmodelViewController.h"
 #import "dabiaocheRaceRecordCell.h"
 
 @interface dabiaocheRaceResultViewController ()
@@ -79,6 +80,15 @@
 - (IBAction)changeDeleteModel:(id)sender {
     UIButton *button = (UIButton *)sender;
     [self.tableView setEditing:!self.tableView.isEditing animated:YES];
+}
+
+- (IBAction)goChooseCarModelForSave:(id)sender {
+    
+    UIStoryboard *storyBoard=[UIStoryboard storyboardWithName:@"Storyboard" bundle:nil];
+    dabiaocheSaveRecordChooseCarmodelViewController *nextView = [storyBoard instantiateViewControllerWithIdentifier:@"saveRecordChooseCarmodelView"];
+    nextView.recordArr = [self.recordArr copy];
+    nextView.raceDistance = self.raceDistance;
+    [self.navigationController pushViewController:nextView animated:YES];
 }
 
 //这个方法根据参数editingStyle是UITableViewCellEditingStyleDelete

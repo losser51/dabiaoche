@@ -29,7 +29,7 @@
 @synthesize isRacing,isRuning,isRecorded,raceDistance;
 @synthesize ax0,vx0,ay0,vy0,az0,vz0,t0,tt0,vv;
 @synthesize aax,aay,aaz,nn,flag45,flag46,flag47,flag48,flag49,flag50,flag100;
-@synthesize locationManager;
+@synthesize locationManager,player;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -87,6 +87,11 @@
     
     vv=0;
 
+    NSString *soundPath=[[NSBundle mainBundle] pathForResource:@"race" ofType:@"wav"];
+    NSURL *soundUrl=[[NSURL alloc] initFileURLWithPath:soundPath];
+    player=[[AVAudioPlayer alloc] initWithContentsOfURL:soundUrl error:nil];
+    [player prepareToPlay];
+    
     if ([motionManager isAccelerometerAvailable]){
         NSLog(@"Accelerometer is available.");
         motionManager.accelerometerUpdateInterval = 0.02; // 告诉manager，更新频率是100Hz
@@ -238,6 +243,7 @@
         baseZ = baseZ/baseCount;
         isRacing = YES;
         timerCount = 3;
+        [player play];
     }
     timerCount--;
 }
@@ -323,6 +329,13 @@
     double time1 = [[timeArr1 objectAtIndex:[timeArr1 count]-1]doubleValue];
     timeLable1.text = [NSString stringWithFormat:@"%0.3f",time1];
     return cell;
+}
+
+-(IBAction)sayTalking:(id)sender
+{
+    NSLog(@"播放声音");
+    [player play];
+    
 }
 
 @end

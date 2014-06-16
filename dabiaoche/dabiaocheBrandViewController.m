@@ -9,13 +9,14 @@
 #import "dabiaocheBrandViewController.h"
 #import "dabiaocheCarModelViewController.h"
 #import "dabiaocheImageLableCell.h"
+#import "Const.h"
 
 @interface dabiaocheBrandViewController ()
 
 @end
 
 @implementation dabiaocheBrandViewController
-@synthesize list = _list;
+@synthesize list = _list,listBackUp,letterIndexArr,letterIndexArrBackUp;
 @synthesize imageDic=_imageDic;
 @synthesize imageUrlList=_imageUrlList;
 @synthesize tableView = _tableView;
@@ -35,7 +36,7 @@
 	// Do any additional setup after loading the view.
     NSError *error;
     //加载一个NSURL对象
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:@"http://192.168.1.103:8080/getBrands"]];
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:API_HOST_BRANDS]];
     //将请求的url数据放到NSData对象中
     NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
     //IOS5自带解析类NSJSONSerialization从response中解析出数据放到字典中
@@ -49,10 +50,14 @@
 
     NSMutableArray *tmpImageUrlArray = [[NSMutableArray alloc] init];
     _imageDic = [[NSMutableDictionary alloc]init];
+    letterIndexArr = [[NSMutableArray alloc]init];
     for (int i=0; i<[jsonArray count]; i++) {
         NSMutableArray *tmpImageUrlArray_letter = [[NSMutableArray alloc] init];
         NSArray *jsonArray_letter = [jsonArray objectAtIndex:i];
         for (int j=0; j<[jsonArray_letter count]; j++) {
+            if (j==0) {
+                [letterIndexArr addObject:[[jsonArray_letter objectAtIndex:j] objectForKey:@"letter"]];
+            }
             NSString *imageUrl = [[jsonArray_letter objectAtIndex:j] objectForKey:@"imgurl"];
             if([imageUrl isEqualToString:@""]){
                 [tmpImageUrlArray_letter addObject:@"carModel.png"];
@@ -68,6 +73,8 @@
 //    NSNotificationCenter  *center = [NSNotificationCenter defaultCenter];
 //    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"chooseCarModel" object:nil];
 //    [center addObserver:self selector:@selector(chooseCarModel:) name:@"chooseCarModel" object:nil];
+    listBackUp = _list;
+    letterIndexArrBackUp = letterIndexArr;
     NSLog(@"bbb");
 }
 
@@ -164,4 +171,41 @@
     [self.navigationController pushViewController:carModelView animated:YES];
 }
 
+- (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView {
+    return letterIndexArr;
+}
+
+- (IBAction)didEditChange:(id)sender {
+    UITextField* textField = (UITextField*)sender;
+    NSString* keyWord = textField.text;
+
+    if (keyWord.length==0) {
+        self.list = listBackUp;
+        [self.tableView reloadData];
+        [textField resignFirstResponder];
+        return;
+    }
+    NSMutableArray* tempArr = [[NSMutableArray alloc]init];
+    for (int i=0; i<[listBackUp count]; i++) {
+        NSArray *jsonArray_letter = [listBackUp objectAtIndex:i];
+        NSMutableArray *jsonArray_letter_temp = [[NSMutableArray alloc] init];
+        for (int j=0; j<[jsonArray_letter count]; j++) {
+            NSString* name = [[jsonArray_letter objectAtIndex:j] objectForKey:@"name"];
+            if (name.length>=keyWord.length) {
+                if ([keyWord isEqualToString:[name substringToIndex:keyWord.length]]) {
+                    letterIndexArr = [[NSMutableArray alloc]init];
+                    [jsonArray_letter_temp addObject:[jsonArray_letter objectAtIndex:j]];
+                }
+            }
+        }
+        if ([jsonArray_letter_temp count]>0) {
+            [tempArr addObject:jsonArray_letter_temp];
+        }
+    }
+    if ([tempArr count]>0) {
+        letterIndexArr = [letterIndexArrBackUp copy];
+        self.list = [tempArr copy];
+        [self.tableView reloadData];
+    }
+}
 @end

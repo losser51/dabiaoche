@@ -10,6 +10,7 @@
 
 @interface dabiaocheEditBoxViewController : UIViewController
 - (IBAction)clickRightButton:(id)sender;
+- (BOOL) validateEmail: (NSString *) candidate;
 @property (weak, nonatomic) IBOutlet UITextField *editBox_text;
 @property (strong, nonatomic) NSString *notification;
 @property (assign, nonatomic) NSInteger editTag;

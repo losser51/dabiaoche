@@ -8,6 +8,7 @@
 
 #import "dabiaocheCarModelViewController.h"
 #import "dabiaocheImageLableCell.h"
+#import "Const.h"
 
 @interface dabiaocheCarModelViewController ()
 
@@ -33,7 +34,7 @@
 	// Do any additional setup after loading the view.
     NSError *error;
     //加载一个NSURL对象
-    NSString *url = [NSString stringWithFormat:@"http://192.168.1.103:8080/getCarModels?brandId=%ld",(long)self.brandId];
+    NSString *url = [NSString stringWithFormat:API_HOST_CARMODELS_BY_BRAND,(long)self.brandId];
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
     //将请求的url数据放到NSData对象中
     NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
@@ -93,8 +94,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView
          cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    dabiaocheImageLableCell *cell = (dabiaocheImageLableCell *)[tableView
-                                                                dequeueReusableCellWithIdentifier:@"imageLableCell"];
+    dabiaocheImageLableCell *cell = (dabiaocheImageLableCell *)[tableView dequeueReusableCellWithIdentifier:@"imageLableCell"];
     NSUInteger row = [indexPath row];
     NSUInteger section = [indexPath section];
     NSString *indexKey = [NSString stringWithFormat:@"%d-%d",section,row];
@@ -103,7 +103,8 @@
     cell.lable.text = [one objectForKey:@"name"];
     UIImage *image = [_imageDic objectForKey:indexKey];
     if (image == nil) {
-        NSString *imageUrl = [one objectForKey:@"imgurl2"];
+        
+        NSString *imageUrl = [NSString stringWithFormat:IMAGE_URL_CARMODEL,[one objectForKey:@"id"]];
         
         if([imageUrl isEqualToString:@""]){
             image = [UIImage imageNamed:@"carModel.png"];

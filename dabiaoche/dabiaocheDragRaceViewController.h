@@ -10,11 +10,15 @@
 #import "GraphView.h"
 #import "AccelerometerFilter.h"
 #import <CoreLocation/CoreLocation.h>
+#import <AVFoundation/AVFoundation.h>
 
 @interface dabiaocheDragRaceViewController : UIViewController<CLLocationManagerDelegate, UITableViewDelegate, UITableViewDataSource>
 //<UIAccelerometerDelegate>
+
+@property (strong, nonatomic)AVAudioPlayer *player;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 - (IBAction)beginAndStopBtnClick:(id)sender;
+- (IBAction)sayTalking:(id)sender;
 @property (weak, nonatomic) IBOutlet UIView *timerView;
 @property (weak, nonatomic) IBOutlet UIButton *beginAndStopBtn;
 @property (weak, nonatomic) IBOutlet GraphView *unfiltered;

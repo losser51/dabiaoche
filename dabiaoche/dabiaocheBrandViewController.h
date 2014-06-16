@@ -11,6 +11,10 @@
 @interface dabiaocheBrandViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>  
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSArray *list;
+@property (strong, nonatomic) NSArray *listBackUp;
 @property (strong, nonatomic) NSMutableDictionary *imageDic;
+- (IBAction)didEditChange:(id)sender;
 @property (strong, nonatomic) NSArray *imageUrlList;
+@property (strong, nonatomic) NSMutableArray *letterIndexArr;
+@property (strong, nonatomic) NSArray *letterIndexArrBackUp;
 @end

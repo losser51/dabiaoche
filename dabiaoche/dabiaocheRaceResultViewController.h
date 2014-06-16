@@ -12,5 +12,6 @@
 @property (strong, nonatomic) NSMutableArray *recordArr;
 @property (assign, nonatomic) int raceDistance;
 - (IBAction)changeDeleteModel:(id)sender;
+- (IBAction)goChooseCarModelForSave:(id)sender;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @end

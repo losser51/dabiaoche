@@ -7,6 +7,7 @@
 //
 
 #import "dabiaocheCityViewController.h"
+#import "Const.h"
 
 @interface dabiaocheCityViewController ()
 
@@ -33,7 +34,7 @@
 	// Do any additional setup after loading the view.
     NSError *error;
     //加载一个NSURL对象
-    NSString *url = [NSString stringWithFormat:@"http://192.168.1.103:8080/getCities"];
+    NSString *url = [NSString stringWithFormat:API_HOST_CITYS];
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
     //将请求的url数据放到NSData对象中
     NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
@@ -195,5 +196,9 @@
          }
          
      }];
+}
+- (IBAction)didEditChange:(id)sender {
+    UITextField* textField = (UITextField*)sender;
+    
 }
 @end
