@@ -13,5 +13,7 @@
 @property (assign, nonatomic) int raceDistance;
 - (IBAction)changeDeleteModel:(id)sender;
 - (IBAction)goChooseCarModelForSave:(id)sender;
+- (IBAction)goReRace:(id)sender;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (assign, nonatomic) BOOL isLogin;
 @end

@@ -34,6 +34,7 @@
     if (_editModel==EDIT_MODEL_PASSWORD) {
         _editBox_text.secureTextEntry = YES;
     }
+    [_editBox_text setText:_defaultValue];
     [_editBox_text becomeFirstResponder];
 }
 
@@ -74,8 +75,7 @@
     NSError *error;
     id result = [NSJSONSerialization dataWithJSONObject:one options:kNilOptions error:&error];
     [nc postNotificationName:_notification object:result];
-    [self.navigationController popToViewController:[self.navigationController.viewControllers objectAtIndex:1]
-                                          animated:YES];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (BOOL) validateEmail: (NSString *) candidate
@@ -87,7 +87,7 @@
 
 - (BOOL) validateNickname: (NSString *) candidate
 {
-    if (candidate.length<2||candidate.length>8) {
+    if (candidate.length>44) {
         return NO;
     }
     return YES;

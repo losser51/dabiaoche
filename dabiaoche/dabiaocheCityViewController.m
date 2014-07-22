@@ -141,8 +141,9 @@
     //    id result =[NSJSONSerialization dataWithJSONObject:one:kNilOptions error:&error];
     id result = [NSJSONSerialization dataWithJSONObject:one options:kNilOptions error:&error];
     [nc postNotificationName:@"chooseCity" object:result];
-    [self.navigationController popToViewController:[self.navigationController.viewControllers objectAtIndex:1]
-                                          animated:YES];
+//    [self.navigationController popToViewController:[self.navigationController.viewControllers objectAtIndex:1]
+//                                          animated:YES];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 #pragma mark location

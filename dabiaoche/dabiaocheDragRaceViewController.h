@@ -12,13 +12,20 @@
 #import <CoreLocation/CoreLocation.h>
 #import <AVFoundation/AVFoundation.h>
 
-@interface dabiaocheDragRaceViewController : UIViewController<CLLocationManagerDelegate, UITableViewDelegate, UITableViewDataSource>
+@interface dabiaocheDragRaceViewController : UIViewController<CLLocationManagerDelegate, UITableViewDelegate, UITableViewDataSource>{
+    int v_max;
+    Boolean isCancel;
+}
 //<UIAccelerometerDelegate>
+@property (strong, nonatomic) IBOutlet UIView *alertView;
+@property (strong, nonatomic) IBOutlet UILabel *errorLable;
+@property (strong, nonatomic) IBOutlet UILabel *beginLable;
 
 @property (strong, nonatomic)AVAudioPlayer *player;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 - (IBAction)beginAndStopBtnClick:(id)sender;
 - (IBAction)sayTalking:(id)sender;
+- (IBAction)cancelStart:(id)sender;
 @property (weak, nonatomic) IBOutlet UIView *timerView;
 @property (weak, nonatomic) IBOutlet UIButton *beginAndStopBtn;
 @property (weak, nonatomic) IBOutlet GraphView *unfiltered;
@@ -27,6 +34,11 @@
 @property (weak, nonatomic) IBOutlet UILabel *timerLable;
 @property (weak, nonatomic) IBOutlet UILabel *speedLable;
 @property (weak, nonatomic) IBOutlet UILabel *countLable;
+@property (strong, nonatomic) IBOutlet UIImageView *ringStep2Image;
+@property (strong, nonatomic) IBOutlet UIImageView *ringStep1Image;
+@property (strong, nonatomic) IBOutlet UIView *viewStep2;
+@property (strong, nonatomic) IBOutlet UIView *viewStep3;
+
 @property (assign, nonatomic) int timerCount;
 @property (assign, nonatomic) Boolean isRacing;
 @property (assign, nonatomic) Boolean isRuning;

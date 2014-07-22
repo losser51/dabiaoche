@@ -7,6 +7,7 @@
 //
 
 #import "dabiaocheSaveRecordChooseCarmodelViewController.h"
+#import "dabiaocheMyRecordViewController.h"
 #import "NSObject+JSONCategories.h"
 #import "Const.h"
 
@@ -17,7 +18,7 @@
 @implementation dabiaocheSaveRecordChooseCarmodelViewController
 @synthesize otherChooseFlagImage,otherChooseCarmodelImage,otherChooseCarmodelLable,otherChooseLable;
 @synthesize userDefaultCarModelFlagImage,userDefaultCarModelImage,userDefaultCarModelLable;
-@synthesize recordArr,hostUser,carModel,raceDistance;
+@synthesize recordArr,hostUser,carModel,defaultCarModel,raceDistance;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -48,6 +49,7 @@
     //IOS5自带解析类NSJSONSerialization从response中解析出数据放到字典中
     //    NSDictionary *brandsDic = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
     carModel = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
+    defaultCarModel = [carModel copy];
     if (!carModel) {
         NSLog(@"Error parsing JSON: %@", error);
     } else {
@@ -141,8 +143,17 @@
     NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&urlResponse error:&error];
     //将NSData类型的返回值转换成NSString类型
     NSString *result = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
-    NSLog(@"user login check result:%@",result);
 
+    UIStoryboard *storyBoard=[UIStoryboard storyboardWithName:@"Storyboard" bundle:nil];
+    dabiaocheMyRecordViewController *myReocrdView = [storyBoard instantiateViewControllerWithIdentifier:@"myReocrdView"];
+    [self.navigationController pushViewController:myReocrdView animated:YES];
+}
+
+- (IBAction)chooseDefaultCarModel:(id)sender {
+    otherChooseFlagImage.hidden = YES;
+    userDefaultCarModelFlagImage.hidden = NO;
+    
+    carModel = [defaultCarModel copy];
 }
 - (NSData *)toJSONData:(id)theData{
     

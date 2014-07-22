@@ -19,7 +19,9 @@
 @property (strong, nonatomic) NSArray *recordArr;
 @property (strong, nonatomic) NSDictionary *hostUser;
 @property (strong, nonatomic) NSDictionary *carModel;
+@property (strong, nonatomic) NSDictionary *defaultCarModel;
 @property (assign, nonatomic) int raceDistance;
 - (IBAction)saveRecords:(id)sender;
+- (IBAction)chooseDefaultCarModel:(id)sender;
 
 @end

@@ -11,6 +11,7 @@
 @interface dabiaocheLoginViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UITextField *nickname_lable;
 @property (weak, nonatomic) IBOutlet UITextField *password_lable;
+@property (assign, nonatomic) BOOL isGoBack;
 - (IBAction)login:(id)sender;
 - (IBAction)nickClick:(id)sender;
 - (IBAction)passwordClick:(id)sender;

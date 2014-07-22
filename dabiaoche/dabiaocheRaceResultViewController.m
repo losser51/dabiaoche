@@ -8,6 +8,7 @@
 
 #import "dabiaocheRaceResultViewController.h"
 #import "dabiaocheSaveRecordChooseCarmodelViewController.h"
+#import "dabiaocheLoginViewController.h"
 #import "dabiaocheRaceRecordCell.h"
 
 @interface dabiaocheRaceResultViewController ()
@@ -15,7 +16,7 @@
 @end
 
 @implementation dabiaocheRaceResultViewController
-@synthesize recordArr,raceDistance;
+@synthesize recordArr,raceDistance,isLogin;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -28,9 +29,25 @@
 
 - (void)viewDidLoad
 {
+    isLogin = NO;
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
 
+}
+
+- (void)viewDidAppear:(BOOL)animated{
+    NSUserDefaults *standardUserDefaults = [NSUserDefaults standardUserDefaults];
+    NSDictionary* hostUser = [standardUserDefaults objectForKey:@"hostUser"];
+    
+    if (isLogin && hostUser!=NULL) {
+        UIStoryboard *storyBoard=[UIStoryboard storyboardWithName:@"Storyboard" bundle:nil];
+        dabiaocheSaveRecordChooseCarmodelViewController *nextView = [storyBoard instantiateViewControllerWithIdentifier:@"saveRecordChooseCarmodelView"];
+        nextView.recordArr = [self.recordArr copy];
+        nextView.raceDistance = self.raceDistance;
+        [self.navigationController pushViewController:nextView animated:YES];
+        isLogin = NO;
+    }
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -57,10 +74,10 @@
     NSInteger row = [indexPath row];
 //    NSInteger section = [indexPath section];
     NSDictionary * one = [recordArr objectAtIndex:row];
-    NSArray *timeArr = [one objectForKey:@"timeArr"];
+//    NSArray *timeArr = [one objectForKey:@"timeArr"];
     NSArray *accArr = [one objectForKey:@"accArr"];
 
-    double time = [[timeArr objectAtIndex:[timeArr count]-1]doubleValue];
+    double time = [[one objectForKey:@"spend"]doubleValue];
     NSNumber *avg = [accArr valueForKeyPath:@"@avg.floatValue"];
     NSNumber *max = [accArr valueForKeyPath:@"@max.floatValue"];
     
@@ -78,17 +95,38 @@
 }
 
 - (IBAction)changeDeleteModel:(id)sender {
-    UIButton *button = (UIButton *)sender;
+//    UIButton *button = (UIButton *)sender;
     [self.tableView setEditing:!self.tableView.isEditing animated:YES];
 }
 
 - (IBAction)goChooseCarModelForSave:(id)sender {
     
-    UIStoryboard *storyBoard=[UIStoryboard storyboardWithName:@"Storyboard" bundle:nil];
-    dabiaocheSaveRecordChooseCarmodelViewController *nextView = [storyBoard instantiateViewControllerWithIdentifier:@"saveRecordChooseCarmodelView"];
-    nextView.recordArr = [self.recordArr copy];
-    nextView.raceDistance = self.raceDistance;
-    [self.navigationController pushViewController:nextView animated:YES];
+    NSUserDefaults *standardUserDefaults = [NSUserDefaults standardUserDefaults];
+    NSDictionary* hostUser = [standardUserDefaults objectForKey:@"hostUser"];
+    if (hostUser != nil) {
+        UIStoryboard *storyBoard=[UIStoryboard storyboardWithName:@"Storyboard" bundle:nil];
+        dabiaocheSaveRecordChooseCarmodelViewController *nextView = [storyBoard instantiateViewControllerWithIdentifier:@"saveRecordChooseCarmodelView"];
+        nextView.recordArr = [self.recordArr copy];
+        nextView.raceDistance = self.raceDistance;
+        [self.navigationController pushViewController:nextView animated:YES];
+    }else{
+        UIStoryboard *storyBoard=[UIStoryboard storyboardWithName:@"Storyboard" bundle:nil];
+        dabiaocheLoginViewController *nextView = [storyBoard instantiateViewControllerWithIdentifier:@"loginView"];
+        nextView.isGoBack = YES;
+//        nextView.recordArr = [self.recordArr copy];
+//        nextView.raceDistance = self.raceDistance;
+        [self.navigationController pushViewController:nextView animated:YES];
+        isLogin = YES;
+    }
+}
+
+- (IBAction)goReRace:(id)sender {
+    NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+    NSDictionary* dic = [[NSDictionary alloc]init];
+    NSError *error;
+    id result = [NSJSONSerialization dataWithJSONObject:dic options:kNilOptions error:&error];
+    [nc postNotificationName:@"reRace" object:result];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 //这个方法根据参数editingStyle是UITableViewCellEditingStyleDelete
@@ -105,4 +143,6 @@
 //                         withRowAnimation:UITableViewRowAnimationAutomatic];
     }
 }
+
+
 @end

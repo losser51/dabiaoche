@@ -19,10 +19,13 @@
 @property (weak, nonatomic) IBOutlet UILabel *city_lable;
 @property (weak, nonatomic) IBOutlet UIButton *changeImage_btn;
 - (IBAction)saveBtnClick:(id)sender;
+- (IBAction)changeImage:(id)sender;
+@property (weak, nonatomic) IBOutlet UIButton *changeImageBtn;
 @property (assign, nonatomic) NSInteger carModelId;
 @property (assign, nonatomic) NSInteger cityId;
 @property (strong, nonatomic) NSString *nickname;
 @property (strong, nonatomic) NSString *password;
 @property (strong, nonatomic) NSString *email;
 @property (strong, nonatomic) NSString *headUrl;
+@property (strong, nonatomic) NSString* imagePath;
 @end

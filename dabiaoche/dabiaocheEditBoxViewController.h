@@ -15,4 +15,5 @@
 @property (strong, nonatomic) NSString *notification;
 @property (assign, nonatomic) NSInteger editTag;
 @property (assign, nonatomic) NSInteger editModel;
+@property (strong, nonatomic) NSString *defaultValue;
 @end

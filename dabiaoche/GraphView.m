@@ -111,8 +111,9 @@ CGColorRef graphYColor()
 	static CGColorRef c = NULL;
 	if (c == NULL)
 	{
-//		c = CreateDeviceRGBColor(0.0, 1.0, 0.0, 1.0);
-        c = CreateDeviceGrayColor(0.74, 1.0);
+		c = CreateDeviceRGBColor(0.3, 0.6, 1.0, 1.0);
+//        c = CreateDeviceGrayColor(0.74, 1.0);
+//        c = CreateDeviceRGBColor(100, 160, 255, 1);
 	}
 	return c;
 }

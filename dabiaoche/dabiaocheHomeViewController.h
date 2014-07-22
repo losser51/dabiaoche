@@ -7,8 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MYIntroductionView.h"
 
-@interface dabiaocheHomeViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>
+@interface dabiaocheHomeViewController : UIViewController<UITableViewDelegate, UITableViewDataSource, MYIntroductionDelegate>{
+    
+    
+    IBOutlet UIView *isWaiting;
+    IBOutlet UILabel *myBestSpendLable;
+}
+- (IBAction)toMyRecord:(id)sender;
 @property (weak, nonatomic) IBOutlet UIView *myButtomView;
 @property (weak, nonatomic) IBOutlet UIView *loginButtomView;
 @property (strong,nonatomic) NSDictionary * rankingDic;
@@ -21,4 +28,5 @@
 @property (weak, nonatomic) IBOutlet UIButton *webViewtoggleBtn;
 - (IBAction)closeWebView:(id)sender;
 @property (weak, nonatomic) IBOutlet UIWebView *webVIew;
+- (IBAction)clickMyRecords:(id)sender;
 @end

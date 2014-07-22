@@ -15,7 +15,7 @@
 @end
 
 @implementation dabiaocheLoginViewController
-
+@synthesize isGoBack;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -37,58 +37,66 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    NSUserDefaults *standardUserDefaults = [NSUserDefaults standardUserDefaults];
+    NSDictionary* hostUser = [standardUserDefaults objectForKey:@"hostUser"];
+    if (hostUser != nil) {
+        [self.navigationController popViewControllerAnimated:YES];
+    }
+}
+
 - (IBAction)login:(id)sender {
     NSString *nickname = _nickname_lable.text;
     NSString *password = _password_lable.text;
-    NSString *post = [NSString stringWithFormat:@"u=%@&s=%@",nickname,[password md5HexDigest]];
     
-    NSLog(@"post:%@",post);
-    
-    //将NSSrring格式的参数转换格式为NSData，POST提交必须用NSData数据。
-    NSData *postData = [post dataUsingEncoding:NSUTF8StringEncoding allowLossyConversion:YES];
-    //计算POST提交数据的长度
-    NSString *postLength = [NSString stringWithFormat:@"%d",[postData length]];
-    NSLog(@"postLength=%@",postLength);
-    //定义NSMutableURLRequest
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
-    //设置提交目的url
-    [request setURL:[NSURL URLWithString:API_HOST_LOGIN]];
-    //设置提交方式为 POST
-    [request setHTTPMethod:@"POST"];
-    //设置http-header:Content-Type
-    //这里设置为 application/x-www-form-urlencoded ，如果设置为其它的，比如text/html;charset=utf-8，或者 text/html 等，都会出错。不知道什么原因。
-    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
-    //设置http-header:Content-Length
-    [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
-    //设置需要post提交的内容
-    [request setHTTPBody:postData];
-    
-    //定义
-    NSHTTPURLResponse* urlResponse = nil;
-    NSError *error = [[NSError alloc] init];
-    //同步提交:POST提交并等待返回值（同步），返回值是NSData类型。
-    NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&urlResponse error:&error];
+    AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:@""]];
+    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"application/json"];
+    NSMutableDictionary *parmeters = [NSMutableDictionary dictionary];
+    [parmeters setValue:nickname forKey:@"u"];
+    [parmeters setValue:[password md5HexDigest] forKey:@"s"];
 
-    NSDictionary *result = [NSJSONSerialization JSONObjectWithData:responseData options:NSJSONReadingAllowFragments error:&error];
-    
-    if ([result objectForKey:@"rtn"]) {
-        NSLog(@"YES");
-        NSDictionary * user = [result objectForKey:@"user"];
-        if (!user) {
-            NSLog(@"Error parsing JSON: %@", error);
-        } else {
-            NSUserDefaults *standardUserDefaults = [NSUserDefaults standardUserDefaults];
-//            if([standardUserDefaults objectForKey:@"hostUser"] == nil)
-//            {
-                [standardUserDefaults setValue:user forKey:@"hostUser"];
-                [standardUserDefaults synchronize];
-                [self.navigationController popToViewController:[self.navigationController.viewControllers objectAtIndex:0]
-                                                      animated:YES];
-//            }
-        }
-    }else{
-        NSLog(@"NO");
-    }
+    [manager POST:API_HOST_LOGIN
+       parameters:parmeters
+          success:^(NSURLSessionDataTask * __unused task, id JSON) {
+              if([[JSON objectForKey:@"code"] isEqualToNumber:[NSNumber numberWithInt:0]]){
+                  NSDictionary * user = [JSON objectForKey:@"data"];
+                  if (!user) {
+                  } else {
+                      NSUserDefaults *standardUserDefaults = [NSUserDefaults standardUserDefaults];
+                      [standardUserDefaults setValue:user forKey:@"hostUser"];
+                      [standardUserDefaults synchronize];
+                      //获取Documents文件夹目录
+                      NSArray *path = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+                      NSString *documentPath = [path objectAtIndex:0];
+                      //指定新建文件夹路径
+                      NSString *imageDocPath = [documentPath stringByAppendingPathComponent:@"ImageFile"];
+                      //创建ImageFile文件夹
+                      [[NSFileManager defaultManager] createDirectoryAtPath:imageDocPath withIntermediateDirectories:YES attributes:nil error:nil];
+                      //保存图片的路径
+                      NSString *imagePath = [imageDocPath stringByAppendingPathComponent:@"image.png"];
+                      NSURL *url = [NSURL URLWithString:[user objectForKey:@"headUrl"]];
+                      NSData *data = [NSData dataWithContentsOfURL:url];
+                      [[NSFileManager defaultManager] createFileAtPath:imagePath contents:data attributes:nil];
+                      if (isGoBack) {
+                          [self.navigationController popViewControllerAnimated:TRUE];
+                      }else{
+                          [self.navigationController popToViewController:[self.navigationController.viewControllers objectAtIndex:0] animated:YES];
+                      }
+                      
+                  }
+//                  UIAlertView* alert = [[UIAlertView alloc]initWithTitle:@"提示" message:@"登陆成功" delegate:self cancelButtonTitle:@"确定" otherButtonTitles: nil];
+//                  [alert show];
+              }
+              else{
+                  UIAlertView* alert = [[UIAlertView alloc]initWithTitle:@"提示" message:[JSON objectForKey:@"message"] delegate:self cancelButtonTitle:@"确定" otherButtonTitles: nil];
+                  [alert show];
+              }
+          }
+          failure:^(NSURLSessionDataTask *__unused task, NSError *error) {
+              UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"网络状况不稳定，请稍后再试。" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil];
+              [alert show];
+          }];
 }
 
 - (IBAction)nickClick:(id)sender {

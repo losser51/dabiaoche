@@ -8,6 +8,7 @@
 
 #import "dabiaocheRegisterViewController.h"
 #import "dabiaocheEditBoxViewController.h"
+#import "RequestPostUploadHelper.h"
 #import "NSString+MD5HexDigest.h"
 #import "Const.h"
 
@@ -28,6 +29,7 @@
 @synthesize email_btn = _email_btn;
 @synthesize changeImage_btn = _changeImage_btn;
 @synthesize headUrl =_headUrl;
+@synthesize changeImageBtn,imagePath;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -56,6 +58,16 @@
     [center addObserver:self selector:@selector(chooseCity:) name:@"chooseCity" object:nil];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:@"register_editBox" object:nil];
     [center addObserver:self selector:@selector(getRegisterEditBox:) name:@"register_editBox" object:nil];
+    
+    NSArray *path = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentPath = [path objectAtIndex:0];
+    //指定新建文件夹路径
+    NSString *imageDocPath = [documentPath stringByAppendingPathComponent:@"ImageFile"];
+    //创建ImageFile文件夹
+    [[NSFileManager defaultManager] createDirectoryAtPath:imageDocPath withIntermediateDirectories:YES attributes:nil error:nil];
+    //保存图片的路径
+    self.imagePath = [imageDocPath stringByAppendingPathComponent:@"image.png"];
+
 }
 
 //- (void)viewWillAppear:(BOOL)animated
@@ -80,16 +92,22 @@
     
     NSString *imageUrl = [NSString stringWithFormat:IMAGE_URL_CARMODEL,[one objectForKey:@"id"]];
     NSURL *url = [NSURL URLWithString:imageUrl];
-    NSData *data = [NSData dataWithContentsOfURL:url];
-    UIImage* image = [[UIImage alloc] initWithData:data];
+    NSData *imageData = [NSData dataWithContentsOfURL:url];
+    UIImage* image = [[UIImage alloc] initWithData:imageData];
     
-    _carModel_image.image = image;
+//    [changeImageBtn setBackgroundImage:image forState:UIControlStateNormal];
+    [changeImageBtn setImage:image forState:UIControlStateNormal];
+    [changeImageBtn.imageView setContentMode:UIViewContentModeScaleAspectFit];
+
     _carModelId = [[one objectForKey:@"id"]integerValue];
     _headUrl = [imageUrl copy];
     _carModel_tem_lable.hidden = YES;
     _carModel_image.hidden = NO;
     _carModel_lable.hidden = NO;
     _changeImage_btn.hidden = NO;
+    
+    //保存
+    [[NSFileManager defaultManager] createFileAtPath:self.imagePath contents:imageData attributes:nil];
     
 }
 
@@ -163,44 +181,138 @@
     NSLog(@"_carModelId:%d",_carModelId);
     NSLog(@"_cityId:%d",_cityId);
     
-    //post提交的参数，格式如下：
-    //参数1名字=参数1数据&参数2名字＝参数2数据&参数3名字＝参数3数据&...
-    
-    NSString *post = [NSString stringWithFormat:@"u=%@&s=%@&e=%@&c=%d&cm=%d&hu=%@",_nickname,[_password md5HexDigest],_email,_cityId,_carModelId,_headUrl];
-    
-    NSLog(@"post:%@",post);
-    
-    //将NSSrring格式的参数转换格式为NSData，POST提交必须用NSData数据。
-    NSData *postData = [post dataUsingEncoding:NSUTF8StringEncoding allowLossyConversion:YES];
-    //计算POST提交数据的长度
-    NSString *postLength = [NSString stringWithFormat:@"%d",[postData length]];
-    NSLog(@"postLength=%@",postLength);
-    //定义NSMutableURLRequest
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
-    //设置提交目的url
-    [request setURL:[NSURL URLWithString:API_HOST_REGISTER]];
-    //设置提交方式为 POST
-    [request setHTTPMethod:@"POST"];
-    //设置http-header:Content-Type
-    //这里设置为 application/x-www-form-urlencoded ，如果设置为其它的，比如text/html;charset=utf-8，或者 text/html 等，都会出错。不知道什么原因。
-    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
-    //设置http-header:Content-Length
-    [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
-    //设置需要post提交的内容
-    [request setHTTPBody:postData];
-    
-    //定义
-    NSHTTPURLResponse* urlResponse = nil;
-    NSError *error = [[NSError alloc] init];
-    //同步提交:POST提交并等待返回值（同步），返回值是NSData类型。
-    NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&urlResponse error:&error];
-    //将NSData类型的返回值转换成NSString类型
-    NSString *result = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
-    NSLog(@"user login check result:%@",result);
-    
-    if ([@"success" compare:result]==NSOrderedSame) {
-        NSLog(@"YES");
+    NSData *imageData = [[NSData alloc]init];
+    //判断图片是不是png格式的文件
+    if (UIImagePNGRepresentation(changeImageBtn.imageView.image)) {
+        //返回为png图像。
+        imageData = UIImagePNGRepresentation(changeImageBtn.imageView.image);
+    }else {
+        //返回为JPEG图像。
+        imageData = UIImageJPEGRepresentation(changeImageBtn.imageView.image, 1.0);
     }
-    NSLog(@"NO");
+    
+    AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:@""]];
+    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"application/json"];
+    NSMutableDictionary *parmeters = [NSMutableDictionary dictionary];
+    //[dir setValue:@"save" forKey:@"m"];
+    [parmeters setValue:_nickname forKey:@"u"];
+    [parmeters setValue:[_password md5HexDigest] forKey:@"s"];
+    [parmeters setValue:_email forKey:@"e"];
+    [parmeters setValue:[NSNumber numberWithInteger:_carModelId] forKey:@"cm"];
+    [parmeters setValue:[NSNumber numberWithInteger:_cityId] forKey:@"c"];
+    [parmeters setValue:_headUrl forKey:@"hu"];
+    [manager POST:API_HOST_REGISTER parameters:parmeters constructingBodyWithBlock:^(id<AFMultipartFormData> formData){
+        [formData appendPartWithFileData:imageData name:@"userHeadFile" fileName:@"1.png" mimeType:@"image/png"];
+    }success:^(NSURLSessionDataTask * __unused task, id JSON) {
+        
+        NSLog(@"success");
+        if([[JSON objectForKey:@"code"] isEqualToNumber:[NSNumber numberWithInt:0]]){
+            NSDictionary * user = [JSON objectForKey:@"data"];
+            if (!user) {
+//                NSLog(@"Error parsing JSON: %@", error);
+            } else {
+                NSUserDefaults *standardUserDefaults = [NSUserDefaults standardUserDefaults];
+                [standardUserDefaults setValue:user forKey:@"hostUser"];
+                [standardUserDefaults synchronize];
+                [self.navigationController popViewControllerAnimated:YES];
+            }
+//            UIAlertView* alert = [[UIAlertView alloc]initWithTitle:@"提示" message:@"注册成功" delegate:self cancelButtonTitle:@"确定" otherButtonTitles: nil];
+//            [alert show];
+        }
+        else{
+            UIAlertView* alert = [[UIAlertView alloc]initWithTitle:@"提示" message:[JSON objectForKey:@"message"] delegate:self cancelButtonTitle:@"确定" otherButtonTitles: nil];
+            [alert show];
+        }
+    }
+    failure:^(NSURLSessionDataTask *__unused task, NSError *error) {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"网络状况不稳定，请稍后再试。" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil];
+            [alert show];
+        }];
 }
+
+- (IBAction)changeImage:(id)sender {
+    UIActionSheet *myActionSheet = [[UIActionSheet alloc]
+                                    initWithTitle:nil
+                                    delegate:self
+                                    cancelButtonTitle:@"取消"
+                                    destructiveButtonTitle:nil
+                                    otherButtonTitles: @"从相册选择", @"拍照",nil];
+    [myActionSheet showInView:self.view];
+    //    [myActionSheet release];
+}
+-(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
+    switch (buttonIndex) {
+        case 0:
+            //从相册选择
+            [self LocalPhoto];
+            break;
+        case 1:
+            //拍照
+            [self takePhoto];
+            break;
+        default:
+            break;
+    }
+}
+//从相册选择
+-(void)LocalPhoto{
+    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+    //资源类型为图片库
+    picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    picker.delegate = self;
+//    picker.toolbar.
+    //设置选择后的图片可被编辑
+    picker.allowsEditing = YES;
+    [self presentModalViewController:picker animated:YES];
+    //    [picker release];
+}
+
+//拍照
+-(void)takePhoto{
+    //资源类型为照相机
+    UIImagePickerControllerSourceType sourceType = UIImagePickerControllerSourceTypeCamera;
+    //判断是否有相机
+    if ([UIImagePickerController isSourceTypeAvailable: UIImagePickerControllerSourceTypeCamera]){
+        UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+        picker.delegate = self;
+        //设置拍照后的图片可被编辑
+        picker.allowsEditing = YES;
+        //资源类型为照相机
+        picker.sourceType = sourceType;
+        [self presentModalViewController:picker animated:YES];
+        //        [picker release];
+    }else {
+        NSLog(@"该设备无摄像头");
+    }
+}
+#pragma Delegate method UIImagePickerControllerDelegate
+//图像选取器的委托方法，选完图片后回调该方法
+-(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingImage:(UIImage *)image editingInfo:(NSDictionary *)editingInfo{
+    
+    //当图片不为空时显示图片并保存图片
+    if (image != nil) {
+        //图片显示在界面上
+//        [changeImageBtn setBackgroundImage:image forState:UIControlStateNormal];
+        [changeImageBtn setImage:image forState:UIControlStateNormal];
+        [changeImageBtn.imageView setContentMode:UIViewContentModeScaleAspectFit];
+        
+        //以下是保存文件到沙盒路径下
+        //把图片转成NSData类型的数据来保存文件
+        NSData *data;
+        //判断图片是不是png格式的文件
+        if (UIImagePNGRepresentation(image)) {
+            //返回为png图像。
+            data = UIImagePNGRepresentation(image);
+        }else {
+            //返回为JPEG图像。
+            data = UIImageJPEGRepresentation(image, 1.0);
+        }
+        //保存
+        [[NSFileManager defaultManager] createFileAtPath:self.imagePath contents:data attributes:nil];
+        
+    }
+    //关闭相册界面
+    [picker dismissModalViewControllerAnimated:YES];
+}
+
 @end

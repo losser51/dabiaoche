@@ -10,13 +10,14 @@
 #import "Const.h"
 #import "dabiaocheCarModelRecordTableViewCell.h"
 #import "dabiaocheCarModelSingleRecordTableViewCell.h"
+#import "dabiaocheHomeViewController.h"
 
 @interface dabiaocheMyRecordViewController ()
 
 @end
 
 @implementation dabiaocheMyRecordViewController
-@synthesize myRecordsArray,myRecordsDic,tableView,levelImageArray;
+@synthesize myRecordsArray,myRecordsDic,tableView,levelImageArray,naviBar;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -32,7 +33,7 @@
     // Do any additional setup after loading the view.
     NSUserDefaults *standardUserDefaults = [NSUserDefaults standardUserDefaults];
     NSDictionary* hostUser = [standardUserDefaults objectForKey:@"hostUser"];
-    NSString *url = [NSString stringWithFormat:@"%@getPersonRecords?userId=%@",API_HOST,[hostUser objectForKey:@"id"]];
+    NSString *url = [NSString stringWithFormat:@"%@getPersonRecords?userId=%@",API_HOST_V1,[hostUser objectForKey:@"id"]];
     NSError *error;
     //加载一个NSURL对象
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
@@ -51,6 +52,44 @@
     UIImage* image4 = [UIImage imageNamed:@"myResult-4-input@2x.png"];
     UIImage* image5 = [UIImage imageNamed:@"myResult-5-input@2x.png"];
     levelImageArray = [[NSArray alloc] initWithObjects:image1,image2,image3,image4,image5, nil];
+    
+    
+//    UIImage *backButtonImage = [[UIImage imageNamed:@"common-houtui-input@2x.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
+//    [[UIBarButtonItem appearance] setBackButtonBackgroundImage:backButtonImage  forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+//    [[UIBarButtonItem appearance] setBackButtonTitlePositionAdjustment:UIOffsetMake(0, backButtonImage.size.height*2) forBarMetrics:UIBarMetricsDefault];
+    
+    
+    
+//    UIButton *backButton = [BarItemButton ;
+//    UIImage * image = [UIImage imageNamed:@"common-houtui-input@2x.png"];
+//    [backButton addTarget:self action:@selector(back:) forControlEvents:UIControlEventTouchUpInside];
+//    [backButton setImage:image forState:UIControlStateNormal];
+////    [backButton addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
+////    [backButton setTitle:@"aaa" forState:UIControlStateNormal];
+////
+//    UIBarButtonItem *backItem = [[UIBarButtonItem alloc] initWithCustomView:backButton];
+//    backItem.image = image;
+//    [backItem setBackButtonBackgroundImage:image forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+//    [backItem setImage:image];
+//
+//    UIBarButtonItem *backbtn = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"common-houtui-input@2x.png"] style:UIButtonTypeCustom target:self action:@selector(back:)];
+//    UIBarButtonItem *backbtn = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:nil target:self action:@selector(back:)];
+//    [backbtn setImage:[UIImage imageNamed:@"common-houtui-input@2x.png"]];
+//    UIBarButtonItem *backbtn = [[UIBarButtonItem alloc] init];
+//    backbtn.title = @"";
+//    self.navigationItem.leftBarButtonItem = backItem;
+                            
+                            
+                            UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(-10, 0, 15, 15)];
+                            [btn addTarget:self action:@selector(back:) forControlEvents:UIControlEventTouchUpInside];
+                            [btn setImage:[UIImage imageNamed:@"common-guanbi@2x.png" ] forState:UIControlStateNormal];
+                            [btn setImage:[UIImage imageNamed:@"common-guanbi@2x.png" ] forState:UIControlStateHighlighted];
+    [btn setTitle:@"     " forState:UIControlStateNormal];
+//                            btn.imageEdgeInsets = UIEdgeInsetsMake(0, -10, 0, 0);
+    btn.contentMode = UIViewContentModeScaleAspectFill;
+                            UIBarButtonItem *backItem = [[UIBarButtonItem alloc] initWithCustomView:btn];
+                            self.navigationItem.leftBarButtonItem = backItem;
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -208,5 +247,15 @@
     [sectionView addSubview:contendView];
     
     return sectionView;
+}
+
+- (IBAction)back:(id)sender
+{
+    NSLog(@"back");
+    for (UIViewController *temp in self.navigationController.viewControllers) {
+        if ([temp isKindOfClass:[dabiaocheHomeViewController class]]) {
+            [self.navigationController popToViewController:temp animated:YES];
+        }
+    }
 }
 @end

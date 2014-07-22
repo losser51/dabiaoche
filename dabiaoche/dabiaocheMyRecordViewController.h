@@ -12,5 +12,7 @@
 @property (strong, nonatomic) NSArray *myRecordsArray;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSDictionary *myRecordsDic;
+@property (weak, nonatomic) IBOutlet UINavigationItem *naviBar;
 @property (strong, nonatomic) NSArray* levelImageArray;
+- (IBAction)back:(id)sender;
 @end
