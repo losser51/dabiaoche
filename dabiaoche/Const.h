@@ -13,9 +13,13 @@
 #define API_HOST                        @"http://api.dabiaoche.com/"
 #define API_HOST_V1                     API_HOST"V1/"
 
+//首页排行列表
 #define API_HOST_GET_HOME_RANKING       API_HOST_V1"getHomeRanking"
+//品牌列表
 #define API_HOST_BRANDS                 API_HOST_V1"getBrands"
+//车型列表
 #define API_HOST_CARMODELS_BY_BRAND     API_HOST_V1"getCarModels?brandId=%ld"
+//个人默认车型
 #define API_HOST_CARMODEL_BY_USER       API_HOST_V1"getCarModelByUserId?userId=%@"
 #define API_HOST_CITYS                  API_HOST_V1"getCities"
 #define API_HOST_LOGIN                  API_HOST_V1"login"

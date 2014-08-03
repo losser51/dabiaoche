@@ -140,10 +140,11 @@
     UIImage *image=[UIImage imageWithContentsOfFile:self.imagePath];
     if (image == nil) {
         //显示默认
-        [changeImageBtn setBackgroundImage:[UIImage imageNamed:@"carModel@2x.png"] forState:UIControlStateNormal];
+        [changeImageBtn setImage:[UIImage imageNamed:@"carModel@2x.png"] forState:UIControlStateNormal];
     }else {
         //显示保存过的
-        [changeImageBtn setBackgroundImage:image forState:UIControlStateNormal];
+        [changeImageBtn setImage:image forState:UIControlStateNormal];
+        [changeImageBtn.imageView setContentMode:UIViewContentModeScaleAspectFit];
     }
 }
 
