@@ -37,7 +37,7 @@
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
     NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
     NSDictionary* htmlAddressDic = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingAllowFragments error:&error];
-    NSLog(@"-------------3");
+//    NSLog(@"-------------3");
     if ((NSNull *)htmlAddressDic != [NSNull null]) {
         url = [htmlAddressDic objectForKey:@"url"];
         request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
@@ -54,11 +54,11 @@
         [self buildIntro];
     }
     
-    NSLog(@"-------------1");
+//    NSLog(@"-------------1");
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    NSLog(@"-------------4");
+//    NSLog(@"-------------4");
     
     NSNotificationCenter  *center = [NSNotificationCenter defaultCenter];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:@"guideOver" object:nil];
@@ -82,7 +82,7 @@
         
         MYIntroductionPanel *panel3 = [[MYIntroductionPanel alloc] initWithimage:[UIImage imageNamed:@"启动画面03@2x.jpg"] description:@""];
         introductionView = [[MYIntroductionView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height) panels:@[panel, panel2,panel3]];
-        NSLog(@"%f",self.view.frame.size.height);
+//        NSLog(@"%f",self.view.frame.size.height);
 //    }
 //    else{
 //        //STEP 1 Construct Panels
@@ -129,11 +129,11 @@
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
     //将请求的url数据放到NSData对象中
     NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
-    NSLog(@"-------------2");
+//    NSLog(@"-------------2");
     //IOS5自带解析类NSJSONSerialization从response中解析出数据放到字典中
     rankingDic = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingAllowFragments error:&error];
     if (!rankingDic) {
-        NSLog(@"Error parsing JSON: %@", error);
+//        NSLog(@"Error parsing JSON: %@", error);
     } else {
 //        rankingArr = [[rankingDic objectForKey:@"50"] copy];
         NSInteger index = typeSegmented.selectedSegmentIndex;
@@ -148,10 +148,10 @@
     
     
     
-    NSLog(@"-------------5");
+//    NSLog(@"-------------5");
     NSUserDefaults *standardUserDefaults = [NSUserDefaults standardUserDefaults];
     NSDictionary* hostUser = [standardUserDefaults objectForKey:@"hostUser"];
-    NSLog(@"-------------5-----1");
+//    NSLog(@"-------------5-----1");
     if (hostUser != nil) {
         
         AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:@""]];
@@ -178,7 +178,7 @@
                   }
               }
               failure:^(NSURLSessionDataTask *__unused task, NSError *error) {
-                  NSLog(@"%@",error);
+//                  NSLog(@"%@",error);
               }];
         
         NSArray *path = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
@@ -207,10 +207,10 @@
         loginButtomView.hidden = NO;
         myButtomView.hidden = YES;
         self.navigationItem.rightBarButtonItem.enabled = NO;
-        NSLog(@"hostUser id: %ld",(long)[[hostUser objectForKey:@"id"]integerValue]);
+//        NSLog(@"hostUser id: %ld",(long)[[hostUser objectForKey:@"id"]integerValue]);
     }
     [isWaiting setHidden:YES];
-    NSLog(@"-------------6");
+//    NSLog(@"-------------6");
 }
 
 - (void)didReceiveMemoryWarning
@@ -256,7 +256,7 @@
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView
          cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSLog(@"--------------7");
+//    NSLog(@"--------------7");
     dabiaocheHomeRankingCell *cell = (dabiaocheHomeRankingCell *)[tableView dequeueReusableCellWithIdentifier:@"homeRankingCell"];
     NSUInteger row = [indexPath row];
     NSUInteger section = [indexPath section];
@@ -290,7 +290,7 @@
     NSData *data = [NSData dataWithContentsOfURL:url];
     cell.rankingCarModelImage.image = [[UIImage alloc] initWithData:data];
 
-    NSLog(@"--------------8");
+//    NSLog(@"--------------8");
     return cell;
 }
 - (IBAction)closeWebView:(id)sender {

@@ -15,6 +15,9 @@
 @interface dabiaocheDragRaceViewController : UIViewController<CLLocationManagerDelegate, UITableViewDelegate, UITableViewDataSource>{
     int v_max;
     Boolean isCancel;
+    double baseRoll;
+    double basePitch;
+    double baseYaw;
 }
 //<UIAccelerometerDelegate>
 @property (strong, nonatomic) IBOutlet UIView *alertView;

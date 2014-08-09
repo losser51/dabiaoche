@@ -84,7 +84,7 @@
 
 #pragma mark Notification
 - (void) chooseCarModel:(NSNotification *)notification{
-    NSLog(@"Received notification: %@", [notification object]);
+//    NSLog(@"Received notification: %@", [notification object]);
     NSError *error;
     NSDictionary *one = [NSJSONSerialization JSONObjectWithData:[notification object] options:NSJSONReadingAllowFragments error:&error];
     
@@ -112,7 +112,7 @@
 }
 
 - (void) chooseCity:(NSNotification *)notification{
-    NSLog(@"Received notification: %@", [notification object]);
+//    NSLog(@"Received notification: %@", [notification object]);
     NSError *error;
     NSDictionary *one = [NSJSONSerialization JSONObjectWithData:[notification object] options:NSJSONReadingAllowFragments error:&error];
     
@@ -121,7 +121,7 @@
 }
 
 - (void) getRegisterEditBox:(NSNotification *)notification{
-    NSLog(@"Received notification: %@", [notification object]);
+//    NSLog(@"Received notification: %@", [notification object]);
     NSError *error;
     NSDictionary *one = [NSJSONSerialization JSONObjectWithData:[notification object] options:NSJSONReadingAllowFragments error:&error];
     

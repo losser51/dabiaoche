@@ -32,7 +32,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    NSLog(@"aaa");
+//    NSLog(@"aaa");
 	// Do any additional setup after loading the view.
     NSError *error;
     //加载一个NSURL对象
@@ -43,7 +43,7 @@
 //    NSDictionary *brandsDic = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
     NSArray *jsonArray = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingAllowFragments error:&error];
     if (!jsonArray) {
-        NSLog(@"Error parsing JSON: %@", error);
+//        NSLog(@"Error parsing JSON: %@", error);
     } else {
         self.list = jsonArray;
     }
@@ -75,7 +75,7 @@
 //    [center addObserver:self selector:@selector(chooseCarModel:) name:@"chooseCarModel" object:nil];
     listBackUp = _list;
     letterIndexArrBackUp = letterIndexArr;
-    NSLog(@"bbb");
+//    NSLog(@"bbb");
 }
 
 - (void)viewWillAppear:(BOOL)animated{

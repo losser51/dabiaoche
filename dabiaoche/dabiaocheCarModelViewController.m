@@ -42,7 +42,7 @@
     //    NSDictionary *brandsDic = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
     NSArray *jsonArray = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingAllowFragments error:&error];
     if (!jsonArray) {
-        NSLog(@"Error parsing JSON: %@", error);
+//        NSLog(@"Error parsing JSON: %@", error);
     } else {
         self.list = jsonArray;
     }

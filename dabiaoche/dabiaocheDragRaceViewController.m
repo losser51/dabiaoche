@@ -71,6 +71,9 @@
     baseX = 0.0;
     baseY = 0.0;
     baseZ = 0.0;
+    basePitch = 0.0;
+    baseRoll = 0.0;
+    baseYaw = 0.0;
     baseCount = 0;
     
     ax0=0;
@@ -96,7 +99,7 @@
     [player prepareToPlay];
     
     if ([motionManager isAccelerometerAvailable]){
-        NSLog(@"Accelerometer is available.");
+//        NSLog(@"Accelerometer is available.");
         motionManager.accelerometerUpdateInterval = 0.02; // 告诉manager，更新频率是100Hz
         
 //        [motionManager startDeviceMotionUpdates];
@@ -148,12 +151,17 @@
     [motionManager startDeviceMotionUpdates];
     [locationManager startUpdatingLocation];
     NSOperationQueue *queue = [[NSOperationQueue alloc] init];
+    NSOperationQueue *queue1 = [[NSOperationQueue alloc] init];
+
+    [motionManager startDeviceMotionUpdatesToQueue:queue1 withHandler:
+        ^(CMDeviceMotion *motion, NSError *error){
+        [self performSelectorOnMainThread:@selector(setWave1:) withObject:motion waitUntilDone:NO];
+        }];
+//    [motionManager startAccelerometerUpdatesToQueue: queue
+//                                        withHandler:^(CMAccelerometerData *accelerometerData, NSError *error) {
 //
-    [motionManager startAccelerometerUpdatesToQueue: queue
-                                        withHandler:^(CMAccelerometerData *accelerometerData, NSError *error) {
-//
-                                            [self performSelectorOnMainThread:@selector(setWave:) withObject:accelerometerData waitUntilDone:NO];
-                                        }];
+//                                            [self performSelectorOnMainThread:@selector(setWave:) withObject:accelerometerData waitUntilDone:NO];
+//                                        }];
     timerCount = TIMERCOUNT;
 
     [speedLable setText:@"0"];
@@ -171,6 +179,9 @@
     baseX = 0.0;
     baseY = 0.0;
     baseZ = 0.0;
+    basePitch   = 0.0;
+    baseRoll    = 0.0;
+    baseYaw     = 0.0;
     baseCount = 0;
     
     ax0=0;
@@ -196,6 +207,156 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+- (void)setWave1:(CMDeviceMotion *)motion
+{
+//    [motion gravity];
+//    CMDeviceMotion
+//    CMAcceleration *acc = [motion userAcceleration];
+//    NSLog(@"x:%f",[motion userAcceleration].x);
+//    NSLog(@"y:%f",[motion attitude].pitch);
+//    NSLog(@"z:%f",[motion userAcceleration].z);
+    ;
+    
+    CMAcceleration acc = motion.userAcceleration;
+    CMAttitude *attitude = motion.attitude;
+    
+    if (beginAndStopBtn.selected) {
+        if (isRacing) {
+            ax0 = acc.x - baseX;
+            ay0 = acc.y - baseY;
+            az0 = acc.z - baseZ;
+            if (!isRuning) {
+                if (fabs(ax0)<beginAcc&&fabs(ay0)<beginAcc&&fabs(az0)<beginAcc) {
+                    return;
+                }
+                else{
+                    isRuning = YES;
+                    [alertView setHidden:YES];
+                    t0 = [[NSDate date] timeIntervalSince1970];
+                    baseT = t0;
+                }
+            }else{
+                if (fabs(ax0)<0.01) {
+                    ax0 = 0;
+                }
+                if (fabs(ay0)<0.01) {
+                    ay0 = 0;
+                }
+                if (fabs(az0)<0.01) {
+                    az0 = 0;
+                }
+                double t1 = [[NSDate date] timeIntervalSince1970];
+                double t = t1 - t0;
+                t0 = t1;
+                vx0 += ax0 * t * 9.8 * 3.6;
+                vy0 += ay0 * t * 9.8 * 3.6;
+                vz0 += az0 * t * 9.8 * 3.6;
+                
+                vv=sqrt(vx0*vx0+vy0*vy0+vz0*vz0);
+                double aa = sqrt(ax0*ax0+ay0*ay0+az0*az0);
+                if (isCancel) {
+                    gLable.text = @"0";
+                    speedLable.text = @"0";
+                    timeLable.text = @"0";
+                    
+                }else{
+                    gLable.text = [NSString stringWithFormat:@"%0.3f",aa];
+                    speedLable.text = [NSString stringWithFormat:@"%0.3f",vv];
+                    timeLable.text = [NSString stringWithFormat:@"%0.3f",t1 - baseT];
+                }
+                
+                [accArr     addObject:[NSNumber numberWithDouble:aa]];
+                [speedArr   addObject:[NSNumber numberWithDouble:vv]];
+                [timeArr    addObject:[NSNumber numberWithDouble:t1 - baseT]];
+                if(vv>raceDistance&&!isRecorded){
+                    isRecorded = YES;
+                    isCancel = YES;
+                    [beginLable setText:@"成功"];
+                    [beginLable setHidden:NO];
+                    [errorLable setHidden:YES];
+                    [alertView setHidden:NO];
+                    //                    NSDate *d = [NSDate date];
+                    //                    [dateArr addObject:[[NSDate date]copy]];
+                    
+                    [recordDic setObject:[NSDate date] forKey:@"date"];
+                    [recordDic setObject:[accArr copy] forKey:@"accArr"];
+                    [recordDic setObject:[speedArr copy] forKey:@"speedArr"];
+                    [recordDic setObject:[timeArr copy] forKey:@"timeArr"];
+                    double time1 = [[timeArr objectAtIndex:[timeArr count]-1]doubleValue];
+                    if (time1>=4&&time1<5) {
+                        time1 = time1 * 1.02;
+                    }else if (time1>=5&&time1<6){
+                        time1 = time1 * 1.03;
+                    }else if (time1>=6&&time1<7){
+                        time1 = time1 * 1.0424;
+                    }else if (time1>=7&&time1<8){
+                        time1 = time1 * 1.05;
+                    }else if (time1>=8&&time1<9){
+                        time1 = time1 * 1.0575;
+                    }else if (time1>=9&&time1<10){
+                        time1 = time1 * 1.06;
+                    }else if (time1>=10&&time1<11){
+                        time1 = time1 * 1.08;
+                    }else if (time1>=11&&time1<12){
+                        time1 = time1 * 1.09;
+                    }else if (time1>=12&&time1<13){
+                        time1 = time1 * 1.10;
+                    }else if (time1>=13&&time1<14){
+                        time1 = time1 * 1.11;
+                    }else if (time1>=14){
+                        time1 = time1 * 1.18;
+                    }
+                    [recordDic setObject:[NSNumber numberWithDouble:time1] forKey:@"spend"];
+                    
+                    [recordArr addObject:[recordDic copy]];
+                    //                    NSLog(@"%@",[timeArr objectAtIndex:0]);
+                    [accArr removeAllObjects];
+                    [speedArr removeAllObjects];
+                    [timeArr removeAllObjects];
+                    [recordDic removeAllObjects];
+                    [dateArr removeAllObjects];
+                    
+                    countLable.text = [NSString stringWithFormat:@"%lu",(unsigned long)[recordArr count]];
+                    [tableView reloadData];
+                }else{
+                    if (vv>v_max) {
+                        v_max = vv;
+                    }else if (vv<(v_max-1)&&!isRecorded){
+                        isRecorded = YES;
+                        isCancel = YES;
+                        [beginLable setHidden:YES];
+                        [errorLable setText:@"失败：此次测试中有减速"];
+                        [errorLable setHidden:NO];
+                        
+                        [alertView setHidden:NO];
+                        
+                    }
+                    NSLog(@"%f",attitude.yaw);
+                    if (fabs(attitude.yaw-baseYaw)>0.3||fabs(attitude.roll-baseRoll)>0.3||fabs(attitude.pitch-basePitch)>0.3) {
+                        isRecorded = YES;
+                        isCancel = YES;
+                        [beginLable setHidden:YES];
+                        [errorLable setText:@"失败：此次测试中有倾斜"];
+                        [errorLable setHidden:NO];
+                        
+                        [alertView setHidden:NO];
+                    }
+                }
+            }
+            
+        }else{
+            baseX += acc.x;
+            baseY += acc.y;
+            baseZ += acc.z;
+            baseYaw += attitude.yaw;
+            basePitch += attitude.pitch;
+            baseRoll += attitude.roll;
+            baseCount++;
+        }
+    }
+    
+}
+
 - (void)setWave:(CMAccelerometerData *)accData
 {
     CMAcceleration acc = accData.acceleration;
@@ -289,7 +450,7 @@
                     [recordDic setObject:[NSNumber numberWithDouble:time1] forKey:@"spend"];
                     
                     [recordArr addObject:[recordDic copy]];
-                    NSLog(@"%@",[timeArr objectAtIndex:0]);
+//                    NSLog(@"%@",[timeArr objectAtIndex:0]);
                     [accArr removeAllObjects];
                     [speedArr removeAllObjects];
                     [timeArr removeAllObjects];
@@ -305,6 +466,7 @@
                         isRecorded = YES;
                         isCancel = YES;
                         [beginLable setHidden:YES];
+                        [errorLable setText:@"失败：此次测试中有减速"];
                         [errorLable setHidden:NO];
                         
                         [alertView setHidden:NO];
@@ -368,7 +530,7 @@
 //}
 - (void)handleStartTimer:(NSTimer *)theTimer
 {
-    NSLog(@"will be start in %d second",timerCount);
+//    NSLog(@"will be start in %d second",timerCount);
     timerLable.text = [NSString stringWithFormat:@"%d",timerCount-3];
     if (timerCount==3) {
         _viewStep2.hidden = NO;
@@ -384,6 +546,9 @@
         baseX = baseX/baseCount;
         baseY = baseY/baseCount;
         baseZ = baseZ/baseCount;
+        baseRoll = baseRoll/baseCount;
+        basePitch = basePitch/baseCount;
+        baseYaw = baseYaw/baseCount;
         isRacing = YES;
 //        timerCount = 6;
         [player play];
@@ -426,10 +591,10 @@
 //    NSLog(@"newLocation:%f",newLocation.speed);
 //    NSLog(@"oldLocation:%f",oldLocation.speed);
     if (isRuning) {
-        NSLog(@"isRunning speed ===== %f",newLocation.speed);
+//        NSLog(@"isRunning speed ===== %f",newLocation.speed);
         
         if (isRuning) {
-            NSLog(@"speed ===== %f",newLocation.speed);
+//            NSLog(@"speed ===== %f",newLocation.speed);
             if (newLocation.speed<GPS_NO_MOVE_SPEED&&oldLocation.speed<GPS_NO_MOVE_SPEED) {
                 //            NSLog(@"speed ===== %f",newLocation.speed);
                 //            [motionManager stopAccelerometerUpdates];
@@ -508,7 +673,7 @@
 
 -(IBAction)sayTalking:(id)sender
 {
-    NSLog(@"播放声音");
+//    NSLog(@"播放声音");
     [player play];
     
 }
@@ -539,6 +704,9 @@
     baseX = 0.0;
     baseY = 0.0;
     baseZ = 0.0;
+    baseYaw = 0.0;
+    basePitch = 0.0;
+    baseRoll = 0.0;
     baseCount = 0;
     
     ax0=0;

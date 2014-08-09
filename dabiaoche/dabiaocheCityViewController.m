@@ -41,7 +41,7 @@
     //IOS5自带解析类NSJSONSerialization从response中解析出数据放到字典中
     _dic = [[NSMutableDictionary alloc]initWithDictionary:[NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingAllowFragments error:&error]];
     if (!_dic) {
-        NSLog(@"Error parsing JSON: %@", error);
+//        NSLog(@"Error parsing JSON: %@", error);
     }
     _keys = [[_dic allKeys] sortedArrayUsingSelector:@selector(compare:)];
     
@@ -161,10 +161,10 @@
     [geoCoder reverseGeocodeLocation:locationGps completionHandler:^(NSArray *placemarks, NSError *error)
      {
          if (error) {
-             NSLog(@"error: %@",error.description);
+//             NSLog(@"error: %@",error.description);
          }
          else{
-             NSLog(@"placemarks count %lu",(unsigned long)placemarks.count);
+//             NSLog(@"placemarks count %lu",(unsigned long)placemarks.count);
              for (CLPlacemark *placeMark in placemarks)
              {
                  NSString *cityName = placeMark.administrativeArea;
@@ -177,21 +177,21 @@
                          if ([[city objectForKey:@"name"]isEqualToString:cityName]) {
                              NSArray *tem = [[NSArray alloc]initWithObjects:city.copy, nil];
                              [_dic setObject:tem forKey:@"0"];
-                             NSLog(@"1 city name %@",[city objectForKey:@"name"]);
+//                             NSLog(@"1 city name %@",[city objectForKey:@"name"]);
                              [_tableView reloadData];
                              return;
                          }
                          if ([[city objectForKey:@"englishName"]isEqualToString:[cityName lowercaseString]]) {
                              NSArray *tem = [[NSArray alloc]initWithObjects:city.copy, nil];
                              [_dic setObject:tem forKey:@"0"];
-                             NSLog(@"2 city name %@",[city objectForKey:@"name"]);
+//                             NSLog(@"2 city name %@",[city objectForKey:@"name"]);
                              [_tableView reloadData];
                              return;
                          }
                      }
                  }
 
-                 NSLog(@"地址administrativeArea:%@",placeMark.administrativeArea);
+//                 NSLog(@"地址administrativeArea:%@",placeMark.administrativeArea);
 
              }
          }

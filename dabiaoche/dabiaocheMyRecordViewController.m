@@ -42,7 +42,7 @@
     //IOS5自带解析类NSJSONSerialization从response中解析出数据放到字典中
     myRecordsDic = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingAllowFragments error:&error];
     if (!myRecordsDic) {
-        NSLog(@"Error parsing JSON: %@", error);
+//        NSLog(@"Error parsing JSON: %@", error);
     } else {
         
     }
@@ -251,7 +251,7 @@
 
 - (IBAction)back:(id)sender
 {
-    NSLog(@"back");
+//    NSLog(@"back");
     for (UIViewController *temp in self.navigationController.viewControllers) {
         if ([temp isKindOfClass:[dabiaocheHomeViewController class]]) {
             [self.navigationController popToViewController:temp animated:YES];
